@@ -7,8 +7,14 @@
 //
 
 #import "AppDelegate.h"
+#import <CoreData/CoreData.h>
 
 @interface AppDelegate ()
+
+@property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
+@property (strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (strong, nonatomic) UIStoryboard *storyboard;
+
 
 @end
 
@@ -17,9 +23,184 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    _serverPath = @"http://www.encad-akademie.de/JsonExchange/";
+    
+    [self runScriptOperations];
+    
     return YES;
 }
 
+-(void)runScriptOperations{
+    [self runSchulungScripts];
+    
+    [self runSchulungsterminScripts];
+    
+    [self runWebinarScripts];
+    
+    [self runVeranstaltungScripts];
+}
+
+-(void)runSchulungScripts{
+    NSString *jsonString = [_serverPath stringByAppendingString:@"audits.json"];
+    NSString *entityName = @"Schulung";
+    
+    [self initDataDownloadForURLString:jsonString forEntityName:entityName checkVersion:YES];
+}
+
+-(void)runSchulungsterminScripts{
+    NSString *jsonString = [_serverPath  stringByAppendingString:@"auditions.json"];
+    NSString *entityName = @"Schulungstermin";
+    
+    [self initDataDownloadForURLString:jsonString forEntityName:entityName checkVersion:YES];
+}
+
+-(void)runWebinarScripts{
+    NSString *jsonString = [_serverPath  stringByAppendingString:@"webinar.json"];
+    NSString *entityName = @"Webinar";
+    
+    [self initDataDownloadForURLString:jsonString forEntityName:entityName checkVersion:YES];
+}
+
+-(void)runVeranstaltungScripts{
+    NSString *jsonString = [_serverPath  stringByAppendingString:@"event.json"];
+    NSString *entityName = @"Veranstaltung";
+    
+    [self initDataDownloadForURLString:jsonString forEntityName:entityName checkVersion:YES];
+}
+
+
+-(void)initDataDownloadForURLString:(NSString*)inURL forEntityName:(NSString*)entityName checkVersion:(BOOL)check{
+    if(check){
+        BOOL updateJson = [self checkForNewFileVersionOnServerByURL:inURL withEntityName:entityName];
+        if(updateJson){
+            [self fillInDataByURLString:inURL forEntityName:entityName];
+            [self setSyncFlagForEntity:entityName];
+        }
+    }
+    else{
+        [self clearDataForUpdatewithEntityName:entityName];
+        [self fillInDataByURLString:inURL forEntityName:entityName];
+        [self setSyncFlagForEntity:entityName];
+    }
+    NSError *theError;
+    [self.managedObjectContext save:&theError];
+    if(theError != nil){
+        NSLog(@"Failed to save Data; %@",theError);
+    }
+}
+
+-(BOOL)checkForNewFileVersionOnServerByURL:(NSString*)inURL withEntityName:(NSString*)name{
+    
+    // create a HTTP request to get the file information from the web server
+    NSURL* url = [NSURL URLWithString:inURL];
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
+    [request setHTTPMethod:@"HEAD"];
+    
+    NSHTTPURLResponse* response;
+    [NSURLConnection sendSynchronousRequest:request
+                          returningResponse:&response error:nil];
+    
+    // get the last modified info from the HTTP header
+    NSString* httpLastModified = nil;
+    if ([response respondsToSelector:@selector(allHeaderFields)])
+    {
+        httpLastModified = [[response allHeaderFields]
+                            objectForKey:@"Last-Modified"];
+    }
+    
+    // setup a date formatter to query the server file's modified date
+    NSDateFormatter* df = [[NSDateFormatter alloc] init];
+    df.dateFormat = @"EEE',' dd MMM yyyy HH':'mm':'ss 'GMT'";
+    df.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    df.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
+    
+    NSDate *serverFileDate = [df dateFromString:httpLastModified];
+    if(serverFileDate==nil){
+        NSLog(@"Couldn't get the version-date for the database-file from server!");
+        return NO;
+    }
+    
+    NSDate *syncDate = (NSDate*)[[NSUserDefaults standardUserDefaults]objectForKey:[@"syncDate" stringByAppendingString:name]];
+    
+    if([syncDate compare:serverFileDate]==NSOrderedAscending){
+        NSLog(@"Found a new version (%@) after last sync on: %@",serverFileDate,syncDate);
+        [self clearDataForUpdatewithEntityName:name];
+        return YES;
+    }
+    if(syncDate==nil){
+        NSLog(@"Initial CoreData Import");
+        return YES;
+    }
+    NSLog(@"Snyced DataBase on %@ is up to Date with ServerFile: %@",syncDate,serverFileDate);
+    return NO;
+}
+
+-(void)clearDataForUpdatewithEntityName:(NSString*)name{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:name inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    NSError *error = nil;
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil) {
+        NSLog(@"Could not delete Entity Objects");
+    }
+    
+    for (NSManagedObject *currentObject in fetchedObjects) {
+        [self.managedObjectContext deleteObject:currentObject];
+    }
+    
+    [self saveContext];
+    
+}
+
+-(void)fillInDataByURLString:(NSString*)inURL forEntityName:(NSString*)inEntityName{
+    NSError *theError;
+    NSURL *theUrl = [NSURL URLWithString:inURL];
+    NSData *theData = [NSData dataWithContentsOfURL:theUrl options:0 error:&theError];
+    
+    NSArray *jsonObject = [NSJSONSerialization JSONObjectWithData:theData options:0 error:&theError];
+    
+    if(!jsonObject){
+        NSLog(@"There was a Problem retriving the Json File: %@", theError);
+    }
+    else{
+        for(NSDictionary *dict in jsonObject){
+            [self createObjectFromDictionary:dict forEntityName:inEntityName];
+        }
+        [self saveContext];
+    }
+    
+}
+
+-(void)setSyncFlagForEntity:(NSString*)entityName{
+    NSDate* sourceDate = [NSDate date];
+    
+    NSTimeZone* sourceTimeZone = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
+    NSTimeZone* destinationTimeZone = [NSTimeZone systemTimeZone];
+    
+    NSInteger sourceGMTOffset = [sourceTimeZone secondsFromGMTForDate:sourceDate];
+    NSInteger destinationGMTOffset = [destinationTimeZone secondsFromGMTForDate:sourceDate];
+    NSTimeInterval interval = destinationGMTOffset - sourceGMTOffset;
+    
+    NSDate* destinationDate = [[NSDate alloc] initWithTimeInterval:interval sinceDate:sourceDate];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:destinationDate forKey:[@"syncDate" stringByAppendingString:entityName]];
+    [[NSUserDefaults standardUserDefaults]synchronize];
+}
+
+-(void)createObjectFromDictionary:(NSDictionary *)inDictionary forEntityName:(NSString*)inEntityName{
+    NSManagedObject *object = [NSEntityDescription insertNewObjectForEntityForName:inEntityName inManagedObjectContext:self.managedObjectContext];
+    
+    NSDictionary *attributes = [[NSEntityDescription entityForName:inEntityName inManagedObjectContext:self.managedObjectContext] attributesByName];
+    
+    for(NSString *attr in attributes){
+        [object setValue:[inDictionary valueForKey:attr] forKey:attr];
+    }
+    NSLog(@"Successfully updated CoreData: %@",object);
+}
+
+#pragma mark - Application Delegates
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -60,13 +241,14 @@
     if (_managedObjectModel != nil) {
         return _managedObjectModel;
     }
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"encadApp" withExtension:@"momd"];
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Model" withExtension:@"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     return _managedObjectModel;
 }
 
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
     // The persistent store coordinator for the application. This implementation creates and return a coordinator, having added the store for the application to it.
+    
     if (_persistentStoreCoordinator != nil) {
         return _persistentStoreCoordinator;
     }

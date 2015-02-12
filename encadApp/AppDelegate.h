@@ -17,9 +17,21 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
-- (void)saveContext;
+@property (readonly, strong, nonatomic) NSString *serverPath;
+
 - (NSURL *)applicationDocumentsDirectory;
 
+- (void)saveContext;
+
+-(void)runScriptOperations;
+
+-(void)runSchulungScripts;
+
+-(void)runSchulungsterminScripts;
+
+-(void)runWebinarScripts;
+
+-(void)runVeranstaltungScripts;
 
 @end
 
