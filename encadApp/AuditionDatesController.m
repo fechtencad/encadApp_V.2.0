@@ -1,51 +1,100 @@
 //
-//  AuditionDatesTable.m
+//  AuditionDatesController.m
 //  encadApp
 //
-//  Created by Bernd Fecht (encad-consulting.de) on 12.02.15.
+//  Created by Bernd Fecht (encad-consulting.de) on 13.02.15.
 //  Copyright (c) 2015 Bernd Fecht (encad-consulting.de). All rights reserved.
 //
 
-#import "AuditionDatesTable.h"
+#import "AuditionDatesController.h"
 #import <CoreData/CoreData.h>
 #import "AppDelegate.h"
 #import "AuditionDateTableViewCell.h"
 #import "Schulungstermin.h"
-#import "Schulung.h"
 
-@interface AuditionDatesTable ()<NSFetchedResultsControllerDelegate>{
+@interface AuditionDatesController ()<NSFetchedResultsControllerDelegate,UITableViewDataSource,UITableViewDelegate,UIToolbarDelegate>{
     AppDelegate *_delegate;
     NSFetchedResultsController *_fetchedResultController;
 }
 
 @property (nonatomic, strong) NSSortDescriptor *theDescriptor;
-@property (nonatomic, strong) UIActivityIndicatorView *spinner;
+@property (nonatomic, strong) NSPredicate *thePredicate;
+@property (weak, nonatomic) IBOutlet UITableView *auditionTableView;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (weak, nonatomic) IBOutlet UIToolbar *cityToolbar;
 
 @end
 
-@implementation AuditionDatesTable
+@implementation AuditionDatesController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //Set Title
+    self.navigationItem.title=@"Schulungen in Augsburg";
+    
+    //Set Delegates
+    [_auditionTableView setDelegate:self];
+    [_auditionTableView setDataSource:self];
+    
+    //Configurate the data-Download
     _delegate = (AppDelegate*) [[UIApplication sharedApplication]delegate];
     self.theDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"datum" ascending:YES];
     
+    _thePredicate = [NSPredicate predicateWithFormat:@"orts_name = 'Augsburg'"];
+    
     [self initCoreDataFetch];
     
-    // Initialize the refresh control.
-    self.refreshControl = [[UIRefreshControl alloc] init];
-    self.refreshControl.backgroundColor = [UIColor purpleColor];
-    self.refreshControl.tintColor = [UIColor whiteColor];
-    [self.refreshControl addTarget:self
+    // Initialize the refresh control
+    _refreshControl = [[UIRefreshControl alloc] init];
+    _refreshControl.backgroundColor = [UIColor purpleColor];
+    _refreshControl.tintColor = [UIColor whiteColor];
+    [_refreshControl addTarget:self
                             action:@selector(reloadData)
                   forControlEvents:UIControlEventValueChanged];
     
-    //Initialize the spinner
-    _spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge]; [self.view addSubview:_spinner];
-    [_spinner setColor:[UIColor purpleColor]];
-    _spinner.center=CGPointMake(self.view.bounds.size.width/2, self.view.bounds.size.height/2);
+    [self.auditionTableView addSubview:_refreshControl];
+    
+    //Initalize the Toolbar
+    UIBarButtonItem *spaceLeft = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+     UIBarButtonItem *spaceRight = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    
+    NSArray *segItemsArray = [NSArray arrayWithObjects: @"Augsburg", @"Hamburg", nil];
+    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:segItemsArray];
+    segmentedControl.selectedSegmentIndex=0;
+    segmentedControl.tintColor=[UIColor purpleColor];
+    [segmentedControl addTarget:self
+                         action:@selector(changedCity:)
+               forControlEvents:UIControlEventValueChanged];
+    UIBarButtonItem *segmentedControlButtonItem = [[UIBarButtonItem alloc] initWithCustomView:(UIView *)segmentedControl];
+  
+    NSArray *items = [NSArray arrayWithObjects:spaceLeft, segmentedControlButtonItem, spaceRight, nil];
+    
+    [_cityToolbar setItems:items];
 }
+
+-(void)changedCity:(UISegmentedControl*)segmentedControl{
+    //Change predicate
+    switch (segmentedControl.selectedSegmentIndex) {
+        case 0:
+            _thePredicate = [NSPredicate predicateWithFormat:@"orts_name = 'Augsburg'"];
+            //Change title
+            self.navigationItem.title=@"Schulungen in Augsburg";
+            break;
+        case 1:
+            _thePredicate = [NSPredicate predicateWithFormat:@"orts_name = 'Hamburg'"];
+            //Change title
+            self.navigationItem.title=@"Schulungen in Hamburg";
+            break;
+            
+        default:
+            break;
+    }
+    //reload data
+    [self reloadData];
+}
+
 
 
 -(void)initCoreDataFetch{
@@ -68,38 +117,17 @@
 -(NSFetchRequest *)fetchRequest{
     NSFetchRequest *theFetch = [[NSFetchRequest alloc]init];
     NSEntityDescription *theType = [NSEntityDescription entityForName:@"Schulungstermin" inManagedObjectContext:_delegate.managedObjectContext];
+    theFetch.predicate = _thePredicate;
     theFetch.entity = theType;
     theFetch.sortDescriptors = @[self.theDescriptor];
     return theFetch;
-}
-
--(NSString*)convertDateString:(NSString*)dateString WithDaysToAdd:(long)days{
-    days-=1;
-    NSDateFormatter *theFormatter = [[NSDateFormatter alloc]init];
-    [theFormatter setDateFormat:@"yyyy-MM-dd"];
-    NSDate *startDate = [theFormatter dateFromString:dateString];
-    NSDate *endDate = startDate;
-    if(days>0){
-        endDate = [startDate dateByAddingTimeInterval:60*60*24*days];
-    }
-    [theFormatter setDateFormat:@"EE, dd.MM.yyyy"];
-    NSString *convertedDateString = [NSString stringWithFormat:@"von: %@ bis: %@",[theFormatter stringFromDate:startDate],[theFormatter stringFromDate:endDate]];
-    return convertedDateString;
-}
-
--(NSString*)convertDateString:(NSString*)dateString{
-    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-    [formatter setDateFormat:@"yyyy-MM-dd"];
-    NSDate *convertedDate= [formatter dateFromString:dateString];
-    [formatter setDateFormat:@"dd.MM.yyyy"];
-    return [formatter stringFromDate:convertedDate];
 }
 
 -(void)reloadData{
     [_delegate runSchulungsterminScripts];
     
     [self initCoreDataFetch];
-    [self.tableView reloadData];
+    [_auditionTableView reloadData];
     // End the refreshing
     if (self.refreshControl) {
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -113,6 +141,7 @@
         [self.refreshControl endRefreshing];
     }
 }
+
 
 
 - (void)didReceiveMemoryWarning {
@@ -142,46 +171,16 @@
     
     Schulungstermin *auditionDate = [_fetchedResultController objectAtIndexPath:indexPath];
     cell.titleLabel.text=auditionDate.schulungs_name;
-    cell.dateLabel.text = [self convertDateString:auditionDate.datum WithDaysToAdd:[auditionDate.dauer intValue]];
+    [cell setStartDateLabelText:auditionDate.datum];
+    [cell setEndDateLabelText:auditionDate.datum withDuration:[auditionDate.dauer intValue]];
     cell.softwareLabel.text=auditionDate.zusatz;
+    NSString *thePDFUrl = [[@"http://www.encad-akademie.de/pdf/datasheet/" stringByAppendingString:auditionDate.datenblatt_name] stringByAppendingString:@".pdf"];
+    [cell setPDF:thePDFUrl];
     
     return cell;
 }
 
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 /*
 #pragma mark - Navigation

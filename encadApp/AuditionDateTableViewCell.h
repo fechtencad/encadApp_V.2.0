@@ -10,7 +10,13 @@
 
 @interface AuditionDateTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *startDateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *softwareLabel;
+@property (weak, nonatomic) IBOutlet UILabel *endDateLabel;
+@property (weak, nonatomic) IBOutlet UIWebView *pdfWebView;
+
+-(void)setPDF:(NSString *)inUrl;
+-(void)setStartDateLabelText:(NSString*)date;
+-(void)setEndDateLabelText:(NSString*)date withDuration:(int)duration;
 
 @end

@@ -16,6 +16,7 @@
 @property (strong) NSArray *pictures;
 @property (strong) NSArray *backgrounds;
 @property (strong) NSArray *textColors;
+@property (strong) NSArray *segues;
 
 @end
 
@@ -23,6 +24,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _segues = @[@"auditionDates",
+                @"auditionTable"];
     
     _titles=@[@"Termine",
               @"Schulungen"];
@@ -71,10 +75,12 @@
 //    [imageView setContentMode:UIViewContentModeScaleAspectFill];
 //    cell.backgroundView =imageView;
     
-    
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:_segues[indexPath.row]] animated:YES];
+}
 
 /*
 // Override to support conditional editing of the table view.
