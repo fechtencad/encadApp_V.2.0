@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *softwareLabel;
 @property (weak, nonatomic) IBOutlet UILabel *endDateLabel;
 @property (weak, nonatomic) IBOutlet UIWebView *pdfWebView;
+@property (weak, nonatomic) IBOutlet UILabel *cityLabel;
 
 -(void)setPDF:(NSString *)inUrl;
 -(void)setStartDateLabelText:(NSString*)date;

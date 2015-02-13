@@ -112,7 +112,7 @@
 }
 
 /**
- Fetch request sort by date without predicate
+ Fetch request sort by date with predicate
  */
 -(NSFetchRequest *)fetchRequest{
     NSFetchRequest *theFetch = [[NSFetchRequest alloc]init];
@@ -174,6 +174,7 @@
     [cell setStartDateLabelText:auditionDate.datum];
     [cell setEndDateLabelText:auditionDate.datum withDuration:[auditionDate.dauer intValue]];
     cell.softwareLabel.text=auditionDate.zusatz;
+    cell.cityLabel.text=auditionDate.orts_name;
     NSString *thePDFUrl = [[@"http://www.encad-akademie.de/pdf/datasheet/" stringByAppendingString:auditionDate.datenblatt_name] stringByAppendingString:@".pdf"];
     [cell setPDF:thePDFUrl];
     

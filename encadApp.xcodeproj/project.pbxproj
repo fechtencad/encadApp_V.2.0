@@ -38,6 +38,9 @@
 		3A2E22901A8D0BC200E1AB2A /* Schulung.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E228F1A8D0BC200E1AB2A /* Schulung.m */; };
 		3A2E22931A8D0BC200E1AB2A /* Webinar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E22921A8D0BC200E1AB2A /* Webinar.m */; };
 		3A2E22961A8D0BC200E1AB2A /* Veranstaltung.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E22951A8D0BC200E1AB2A /* Veranstaltung.m */; };
+		3AB4DF161A8E217900190C95 /* AuditionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB4DF151A8E217900190C95 /* AuditionTableViewCell.m */; };
+		3AB4DF191A8E21D600190C95 /* AuditionTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB4DF181A8E21D600190C95 /* AuditionTableController.m */; };
+		3AB4DF2E1A8E486C00190C95 /* AuditionDetailTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB4DF2D1A8E486C00190C95 /* AuditionDetailTableController.m */; };
 		3AF191A51A8E0936002D05B9 /* AuditionDatesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF191A41A8E0936002D05B9 /* AuditionDatesController.m */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +100,12 @@
 		3A2E22921A8D0BC200E1AB2A /* Webinar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Webinar.m; sourceTree = "<group>"; };
 		3A2E22941A8D0BC200E1AB2A /* Veranstaltung.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Veranstaltung.h; sourceTree = "<group>"; };
 		3A2E22951A8D0BC200E1AB2A /* Veranstaltung.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Veranstaltung.m; sourceTree = "<group>"; };
+		3AB4DF141A8E217900190C95 /* AuditionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuditionTableViewCell.h; sourceTree = "<group>"; };
+		3AB4DF151A8E217900190C95 /* AuditionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuditionTableViewCell.m; sourceTree = "<group>"; };
+		3AB4DF171A8E21D600190C95 /* AuditionTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuditionTableController.h; sourceTree = "<group>"; };
+		3AB4DF181A8E21D600190C95 /* AuditionTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuditionTableController.m; sourceTree = "<group>"; };
+		3AB4DF2C1A8E486C00190C95 /* AuditionDetailTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuditionDetailTableController.h; sourceTree = "<group>"; };
+		3AB4DF2D1A8E486C00190C95 /* AuditionDetailTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuditionDetailTableController.m; sourceTree = "<group>"; };
 		3AF191A31A8E0936002D05B9 /* AuditionDatesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuditionDatesController.h; sourceTree = "<group>"; };
 		3AF191A41A8E0936002D05B9 /* AuditionDatesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuditionDatesController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,6 +149,7 @@
 		3A026E5C1A8B427300CD0DD4 /* encadApp */ = {
 			isa = PBXGroup;
 			children = (
+				3AB4DF1F1A8E364500190C95 /* Handlers */,
 				3A026E8E1A8B488E00CD0DD4 /* CoreData */,
 				3A026E871A8B47C200CD0DD4 /* Views */,
 				3A026E861A8B428F00CD0DD4 /* Controllers */,
@@ -189,6 +199,10 @@
 				3A2E22401A8CCEA300E1AB2A /* AuditionTaskSelectorTable.m */,
 				3AF191A31A8E0936002D05B9 /* AuditionDatesController.h */,
 				3AF191A41A8E0936002D05B9 /* AuditionDatesController.m */,
+				3AB4DF171A8E21D600190C95 /* AuditionTableController.h */,
+				3AB4DF181A8E21D600190C95 /* AuditionTableController.m */,
+				3AB4DF2C1A8E486C00190C95 /* AuditionDetailTableController.h */,
+				3AB4DF2D1A8E486C00190C95 /* AuditionDetailTableController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -202,6 +216,8 @@
 				3A2E22431A8CCEEF00E1AB2A /* AudtionTaskTableViewCell.m */,
 				3A2E226A1A8CF30A00E1AB2A /* AuditionDateTableViewCell.h */,
 				3A2E226B1A8CF30A00E1AB2A /* AuditionDateTableViewCell.m */,
+				3AB4DF141A8E217900190C95 /* AuditionTableViewCell.h */,
+				3AB4DF151A8E217900190C95 /* AuditionTableViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -242,6 +258,13 @@
 				3A026EAC1A8B836200CD0DD4 /* audit_bird.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		3AB4DF1F1A8E364500190C95 /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Handlers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,8 +383,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AB4DF2E1A8E486C00190C95 /* AuditionDetailTableController.m in Sources */,
 				3A2E22931A8D0BC200E1AB2A /* Webinar.m in Sources */,
 				3A2E22901A8D0BC200E1AB2A /* Schulung.m in Sources */,
+				3AB4DF191A8E21D600190C95 /* AuditionTableController.m in Sources */,
 				3A026E631A8B427300CD0DD4 /* AppDelegate.m in Sources */,
 				3A2E22411A8CCEA300E1AB2A /* AuditionTaskSelectorTable.m in Sources */,
 				3A026E601A8B427300CD0DD4 /* main.m in Sources */,
@@ -372,6 +397,7 @@
 				3A026E961A8B493D00CD0DD4 /* Model.xcdatamodeld in Sources */,
 				3A2E22441A8CCEEF00E1AB2A /* AudtionTaskTableViewCell.m in Sources */,
 				3AF191A51A8E0936002D05B9 /* AuditionDatesController.m in Sources */,
+				3AB4DF161A8E217900190C95 /* AuditionTableViewCell.m in Sources */,
 				3A2E228D1A8D0BC100E1AB2A /* Schulungstermin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
