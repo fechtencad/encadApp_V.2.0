@@ -18,10 +18,11 @@
 }
 
 @property (nonatomic, strong) NSSortDescriptor *theDescriptor;
-@property (nonatomic, strong) NSPredicate *thePredicate;
 @property (weak, nonatomic) IBOutlet UITableView *auditionTableView;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (weak, nonatomic) IBOutlet UIToolbar *cityToolbar;
+@property (nonatomic, strong) NSPredicate *thePredicate;
+
 
 @end
 
@@ -74,6 +75,23 @@
     [_cityToolbar setItems:items];
 }
 
+-(void)checkforEmptyTable{
+    id sectionInfo = [[_fetchedResultController sections] objectAtIndex:0];
+    if([sectionInfo numberOfObjects] == 0){
+        if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_7_1) {
+            if(_theSubPredicate!=nil){
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Keine Termine vorhanden" message:@"Für diese Schulung gibt es demnächst leider keine Schulungen in der ausgewählten Stadt. Sie können uns aber gerne eine Anfrage für eine Abhaltung senden." preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *goBack = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+                [alert addAction:goBack];
+                [self presentViewController:alert animated:YES completion:nil];
+            }
+        }
+        else{
+        
+        }
+    }
+}
+
 -(void)changedCity:(UISegmentedControl*)segmentedControl{
     //Change predicate
     switch (segmentedControl.selectedSegmentIndex) {
@@ -96,6 +114,13 @@
 }
 
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark Core Data Operations
 
 -(void)initCoreDataFetch{
     NSFetchRequest *request = self.fetchRequest;
@@ -109,6 +134,8 @@
     else{
         NSLog(@"Couldn't fetch the Result: %@", theError );
     }
+    
+    [self checkforEmptyTable];
 }
 
 /**
@@ -117,7 +144,12 @@
 -(NSFetchRequest *)fetchRequest{
     NSFetchRequest *theFetch = [[NSFetchRequest alloc]init];
     NSEntityDescription *theType = [NSEntityDescription entityForName:@"Schulungstermin" inManagedObjectContext:_delegate.managedObjectContext];
-    theFetch.predicate = _thePredicate;
+    if(_theSubPredicate!=nil){
+        NSPredicate *compsoundPredicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[_thePredicate,_theSubPredicate]];
+        theFetch.predicate=compsoundPredicate;
+    }
+    else
+        theFetch.predicate = _thePredicate;
     theFetch.entity = theType;
     theFetch.sortDescriptors = @[self.theDescriptor];
     return theFetch;
@@ -143,11 +175,6 @@
 }
 
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 #pragma mark - Table view data source
 

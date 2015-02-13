@@ -10,4 +10,7 @@
 
 @interface AuditionDatesController : UIViewController
 
+@property (nonatomic, strong) NSPredicate *theSubPredicate;
+
+
 @end

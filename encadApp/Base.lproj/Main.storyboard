@@ -314,7 +314,7 @@
                                                     <color key="textColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZE4-da-CA6">
+                                                <webView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZE4-da-CA6">
                                                     <rect key="frame" x="193" y="1" width="374" height="87"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </webView>
@@ -351,6 +351,9 @@
                                                 <constraint firstItem="evG-y9-s1g" firstAttribute="leading" secondItem="4BS-bl-cYk" secondAttribute="leadingMargin" id="v5H-CJ-SD0"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Tvl-HS-3at" kind="show" id="8Cy-NN-2Nv"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
