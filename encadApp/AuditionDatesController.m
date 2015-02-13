@@ -80,7 +80,7 @@
     if([sectionInfo numberOfObjects] == 0){
         if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_7_1) {
             if(_theSubPredicate!=nil){
-                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Keine Termine vorhanden" message:@"Für diese Schulung gibt es demnächst leider keine Schulungen in der ausgewählten Stadt. Sie können uns aber gerne eine Anfrage für eine Abhaltung senden." preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:[@"Keine Termine für " stringByAppendingString:self.navigationItem.title] message:@"Für diese Schulung gibt es demnächst leider keine Schulungen in der ausgewählten Stadt. Sie können uns aber gerne eine Anfrage für eine Abhaltung senden." preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *goBack = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
                 [alert addAction:goBack];
                 [self presentViewController:alert animated:YES completion:nil];
