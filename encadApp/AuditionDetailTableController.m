@@ -25,12 +25,16 @@
     //Set Title
     self.navigationItem.title = _audition.name;
     
-    //TODO: change server path to NSUserDefaults
+    
     //Set WebView
-    _pdfURL = [[@"http://www.encad-akademie.de/pdf/datasheet/" stringByAppendingString:_audition.datenblatt_name] stringByAppendingString:@".pdf"];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *serverPath = [defaults stringForKey:@"serverPath"];
+    
+    _pdfURL = [[[serverPath stringByAppendingString:@"pdf/datasheet/"] stringByAppendingString:_audition.datenblatt_name] stringByAppendingString:@".pdf"];
     NSURL *theURL = [NSURL URLWithString:_pdfURL];
     NSURLRequest *theRequest = [NSURLRequest requestWithURL:theURL];
     [_pdfWebView loadRequest:theRequest];
+    [_pdfWebView setAlpha:0.2f];
     
 }
 
@@ -46,22 +50,64 @@
         case 0:
             [self openDocumentInteractionController];
             break;
+        case 1:
+            [self prepareForAuditionDatesControllerSegue];
+            break;
             
         default:
             break;
     }
 }
 
-//TODO: implement the controller
+-(void)prepareForAuditionDatesControllerSegue{
+    AuditionDatesController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"auditionDates"];
+    vc.theSubPredicate = [NSPredicate predicateWithFormat:@"schulungs_name = %@",_audition.name];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 -(void)openDocumentInteractionController{
-    //download file
+    
+    // Get the PDF Data from the url in a NSData Object
+    NSData *pdfData = [[NSData alloc] initWithContentsOfURL:[                                                             NSURL URLWithString:_pdfURL]];
+    
+    // Store the Data locally as PDF File
+    NSString *resourceDocPath = [[NSString alloc] initWithString:[
+                                                                  [[[NSBundle mainBundle] resourcePath] stringByDeletingLastPathComponent]
+                                                                  stringByAppendingPathComponent:@"Documents"
+                                                                  ]];
+    
+    NSString *filePath = [resourceDocPath
+                          stringByAppendingPathComponent:@"tmpDatasheet.pdf"];
+    [pdfData writeToFile:filePath atomically:YES];
+    
+    
+    // Now create Request for the file that was saved in your documents folder
+    NSURL *url = [NSURL fileURLWithPath:filePath];
     
     //setup controller
-//    UIDocumentInteractionController *controller = [UIDocumentInteractionController interactionControllerWithURL:url];
-//    
-//    [controller setDelegate:self];
-//    
-//    [controller presentPreviewAnimated:YES];
+    UIDocumentInteractionController *controller = [UIDocumentInteractionController interactionControllerWithURL:url];
+    
+    [controller setDelegate:self];
+    
+    [controller presentPreviewAnimated:YES];
+}
+
+#pragma mark - UIDocumentInteractionControllerDelegate
+
+//===================================================================
+- (UIViewController *)documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *)controller
+{
+    return self;
+}
+
+- (UIView *)documentInteractionControllerViewForPreview:(UIDocumentInteractionController *)controller
+{
+    return self.view;
+}
+
+- (CGRect)documentInteractionControllerRectForPreview:(UIDocumentInteractionController *)controller
+{
+    return self.view.frame;
 }
 
 /*
@@ -115,9 +161,6 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    
-    AuditionDatesController *vc = [segue destinationViewController];
-    vc.theSubPredicate = [NSPredicate predicateWithFormat:@"schulungs_name = %@",_audition.name];
 }
 
 

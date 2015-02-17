@@ -25,6 +25,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //Set title
+    self.navigationItem.title=@"Schulungen";
+    
+    //Set Menue Items
     _segues = @[@"auditionDates",
                 @"auditionTable"];
     

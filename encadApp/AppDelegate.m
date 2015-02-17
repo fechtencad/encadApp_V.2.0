@@ -14,6 +14,7 @@
 @property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (strong, nonatomic) UIStoryboard *storyboard;
+@property (strong, nonatomic) NSString *jsonExchangeServerPath;
 
 
 @end
@@ -22,8 +23,14 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    _serverPath = @"http://www.encad-akademie.de/JsonExchange/";
+    
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:@"http://www.encad-akademie.de/" forKey:@"serverPath"];
+    [defaults synchronize];
+    
+    _jsonExchangeServerPath = [[defaults stringForKey:@"serverPath"] stringByAppendingString:@"JsonExchange/"];
+
     
     [self runScriptOperations];
     
@@ -41,28 +48,28 @@
 }
 
 -(void)runSchulungScripts{
-    NSString *jsonString = [_serverPath stringByAppendingString:@"audits.json"];
+    NSString *jsonString = [_jsonExchangeServerPath stringByAppendingString:@"audits.json"];
     NSString *entityName = @"Schulung";
     
     [self initDataDownloadForURLString:jsonString forEntityName:entityName checkVersion:YES];
 }
 
 -(void)runSchulungsterminScripts{
-    NSString *jsonString = [_serverPath  stringByAppendingString:@"auditions.json"];
+    NSString *jsonString = [_jsonExchangeServerPath  stringByAppendingString:@"auditions.json"];
     NSString *entityName = @"Schulungstermin";
     
     [self initDataDownloadForURLString:jsonString forEntityName:entityName checkVersion:YES];
 }
 
 -(void)runWebinarScripts{
-    NSString *jsonString = [_serverPath  stringByAppendingString:@"webinar.json"];
+    NSString *jsonString = [_jsonExchangeServerPath  stringByAppendingString:@"webinar.json"];
     NSString *entityName = @"Webinar";
     
     [self initDataDownloadForURLString:jsonString forEntityName:entityName checkVersion:YES];
 }
 
 -(void)runVeranstaltungScripts{
-    NSString *jsonString = [_serverPath  stringByAppendingString:@"event.json"];
+    NSString *jsonString = [_jsonExchangeServerPath  stringByAppendingString:@"event.json"];
     NSString *entityName = @"Veranstaltung";
     
     [self initDataDownloadForURLString:jsonString forEntityName:entityName checkVersion:YES];

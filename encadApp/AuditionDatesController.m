@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "AuditionDateTableViewCell.h"
 #import "Schulungstermin.h"
+#import "AuditionDateDetailTableController.h"
 
 @interface AuditionDatesController ()<NSFetchedResultsControllerDelegate,UITableViewDataSource,UITableViewDelegate,UIToolbarDelegate>{
     AppDelegate *_delegate;
@@ -22,6 +23,8 @@
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (weak, nonatomic) IBOutlet UIToolbar *cityToolbar;
 @property (nonatomic, strong) NSPredicate *thePredicate;
+@property (nonatomic, strong) NSString *serverPath;
+
 
 
 @end
@@ -73,6 +76,10 @@
     NSArray *items = [NSArray arrayWithObjects:spaceLeft, segmentedControlButtonItem, spaceRight, nil];
     
     [_cityToolbar setItems:items];
+    
+    //Get serverPath
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    _serverPath = [defaults stringForKey:@"serverPath"];
 }
 
 -(void)checkforEmptyTable{
@@ -87,7 +94,8 @@
             }
         }
         else{
-        
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:[@"Keine Termine für " stringByAppendingString:self.navigationItem.title] message:@"Für diese Schulung gibt es demnächst leider keine Schulungen in der ausgewählten Stadt. Sie können uns aber gerne eine Anfrage für eine Abhaltung senden." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
         }
     }
 }
@@ -202,12 +210,17 @@
     [cell setEndDateLabelText:auditionDate.datum withDuration:[auditionDate.dauer intValue]];
     cell.softwareLabel.text=auditionDate.zusatz;
     cell.cityLabel.text=auditionDate.orts_name;
-    NSString *thePDFUrl = [[@"http://www.encad-akademie.de/pdf/datasheet/" stringByAppendingString:auditionDate.datenblatt_name] stringByAppendingString:@".pdf"];
+    NSString *thePDFUrl = [[[_serverPath stringByAppendingString:@"pdf/datasheet/" ] stringByAppendingString: auditionDate.datenblatt_name] stringByAppendingString:@".pdf"];
     [cell setPDF:thePDFUrl];
     
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    AuditionDateDetailTableController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"auditionDateDetail"];
+    vc.auditionDate = [_fetchedResultController objectAtIndexPath:indexPath];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 
 /*

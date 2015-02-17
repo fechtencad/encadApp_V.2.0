@@ -38,6 +38,8 @@
 		3A2E22901A8D0BC200E1AB2A /* Schulung.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E228F1A8D0BC200E1AB2A /* Schulung.m */; };
 		3A2E22931A8D0BC200E1AB2A /* Webinar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E22921A8D0BC200E1AB2A /* Webinar.m */; };
 		3A2E22961A8D0BC200E1AB2A /* Veranstaltung.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E22951A8D0BC200E1AB2A /* Veranstaltung.m */; };
+		3A7E45DC1A932E88001D9C39 /* AuditionSignInController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7E45DB1A932E88001D9C39 /* AuditionSignInController.m */; };
+		3A7E45DF1A933C20001D9C39 /* AuditionDateDetailTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7E45DE1A933C20001D9C39 /* AuditionDateDetailTableController.m */; };
 		3AB4DF161A8E217900190C95 /* AuditionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB4DF151A8E217900190C95 /* AuditionTableViewCell.m */; };
 		3AB4DF191A8E21D600190C95 /* AuditionTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB4DF181A8E21D600190C95 /* AuditionTableController.m */; };
 		3AB4DF2E1A8E486C00190C95 /* AuditionDetailTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB4DF2D1A8E486C00190C95 /* AuditionDetailTableController.m */; };
@@ -100,6 +102,10 @@
 		3A2E22921A8D0BC200E1AB2A /* Webinar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Webinar.m; sourceTree = "<group>"; };
 		3A2E22941A8D0BC200E1AB2A /* Veranstaltung.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Veranstaltung.h; sourceTree = "<group>"; };
 		3A2E22951A8D0BC200E1AB2A /* Veranstaltung.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Veranstaltung.m; sourceTree = "<group>"; };
+		3A7E45DA1A932E88001D9C39 /* AuditionSignInController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuditionSignInController.h; sourceTree = "<group>"; };
+		3A7E45DB1A932E88001D9C39 /* AuditionSignInController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuditionSignInController.m; sourceTree = "<group>"; };
+		3A7E45DD1A933C20001D9C39 /* AuditionDateDetailTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuditionDateDetailTableController.h; sourceTree = "<group>"; };
+		3A7E45DE1A933C20001D9C39 /* AuditionDateDetailTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuditionDateDetailTableController.m; sourceTree = "<group>"; };
 		3AB4DF141A8E217900190C95 /* AuditionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuditionTableViewCell.h; sourceTree = "<group>"; };
 		3AB4DF151A8E217900190C95 /* AuditionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuditionTableViewCell.m; sourceTree = "<group>"; };
 		3AB4DF171A8E21D600190C95 /* AuditionTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuditionTableController.h; sourceTree = "<group>"; };
@@ -193,16 +199,9 @@
 		3A026E861A8B428F00CD0DD4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3A7E45E51A9385CE001D9C39 /* AuditionControllers */,
 				3A026E991A8B4D5C00CD0DD4 /* HomeScreenTable.h */,
 				3A026E9A1A8B4D5C00CD0DD4 /* HomeScreenTable.m */,
-				3A2E223F1A8CCEA300E1AB2A /* AuditionTaskSelectorTable.h */,
-				3A2E22401A8CCEA300E1AB2A /* AuditionTaskSelectorTable.m */,
-				3AF191A31A8E0936002D05B9 /* AuditionDatesController.h */,
-				3AF191A41A8E0936002D05B9 /* AuditionDatesController.m */,
-				3AB4DF171A8E21D600190C95 /* AuditionTableController.h */,
-				3AB4DF181A8E21D600190C95 /* AuditionTableController.m */,
-				3AB4DF2C1A8E486C00190C95 /* AuditionDetailTableController.h */,
-				3AB4DF2D1A8E486C00190C95 /* AuditionDetailTableController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -258,6 +257,25 @@
 				3A026EAC1A8B836200CD0DD4 /* audit_bird.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		3A7E45E51A9385CE001D9C39 /* AuditionControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3A2E223F1A8CCEA300E1AB2A /* AuditionTaskSelectorTable.h */,
+				3A2E22401A8CCEA300E1AB2A /* AuditionTaskSelectorTable.m */,
+				3AF191A31A8E0936002D05B9 /* AuditionDatesController.h */,
+				3AF191A41A8E0936002D05B9 /* AuditionDatesController.m */,
+				3AB4DF171A8E21D600190C95 /* AuditionTableController.h */,
+				3AB4DF181A8E21D600190C95 /* AuditionTableController.m */,
+				3AB4DF2C1A8E486C00190C95 /* AuditionDetailTableController.h */,
+				3AB4DF2D1A8E486C00190C95 /* AuditionDetailTableController.m */,
+				3A7E45DA1A932E88001D9C39 /* AuditionSignInController.h */,
+				3A7E45DB1A932E88001D9C39 /* AuditionSignInController.m */,
+				3A7E45DD1A933C20001D9C39 /* AuditionDateDetailTableController.h */,
+				3A7E45DE1A933C20001D9C39 /* AuditionDateDetailTableController.m */,
+			);
+			name = AuditionControllers;
 			sourceTree = "<group>";
 		};
 		3AB4DF1F1A8E364500190C95 /* Handlers */ = {
@@ -391,7 +409,9 @@
 				3A2E22411A8CCEA300E1AB2A /* AuditionTaskSelectorTable.m in Sources */,
 				3A026E601A8B427300CD0DD4 /* main.m in Sources */,
 				3A026EA51A8B666700CD0DD4 /* HomeScreenTableViewCell.m in Sources */,
+				3A7E45DF1A933C20001D9C39 /* AuditionDateDetailTableController.m in Sources */,
 				3A2E226C1A8CF30A00E1AB2A /* AuditionDateTableViewCell.m in Sources */,
+				3A7E45DC1A932E88001D9C39 /* AuditionSignInController.m in Sources */,
 				3A2E22961A8D0BC200E1AB2A /* Veranstaltung.m in Sources */,
 				3A026E9B1A8B4D5C00CD0DD4 /* HomeScreenTable.m in Sources */,
 				3A026E961A8B493D00CD0DD4 /* Model.xcdatamodeld in Sources */,
