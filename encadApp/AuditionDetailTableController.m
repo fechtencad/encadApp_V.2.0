@@ -22,6 +22,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //set background
+    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"background_audition_bird.png"]];
+    [imageView setContentMode:UIViewContentModeScaleAspectFill];
+    self.tableView.backgroundView = imageView;
+
+    
     //Set Title
     self.navigationItem.title = _audition.name;
     

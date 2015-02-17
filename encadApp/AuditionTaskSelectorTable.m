@@ -15,7 +15,6 @@
 @property (strong) NSArray *descriptions;
 @property (strong) NSArray *pictures;
 @property (strong) NSArray *backgrounds;
-@property (strong) NSArray *textColors;
 @property (strong) NSArray *segues;
 
 @end
@@ -28,6 +27,11 @@
     //Set title
     self.navigationItem.title=@"Schulungen";
     
+    //set background
+    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"background_audition_bird.png"]];
+    [imageView setContentMode:UIViewContentModeScaleAspectFill];
+    self.tableView.backgroundView = imageView;
+    
     //Set Menue Items
     _segues = @[@"auditionDates",
                 @"auditionTable"];
@@ -38,11 +42,8 @@
     _descriptions=@[@"Sehen Sie hier alle Schulungstermine der encad consulting und senden sie gleich eine Anfrage an uns.",
                     @"Durchstöbern Sie unser Schulungsportfolio und finden sie die passende Schulung für Sie."];
     
-    _pictures=@[@"catia_screen.png",
-                @"datasheet.png"];
-    
-    _textColors = @[ [UIColor blackColor],
-                     [UIColor blackColor]];
+    _pictures=@[@"catia_screen_bird.png",
+                @"datasheet_bird.png"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -70,9 +71,7 @@
     // Configure the cell...
     
     [cell.titleLabel setText:_titles[indexPath.row]];
-    cell.titleLabel.textColor=_textColors[indexPath.row];
     [cell.descriptionLabel setText:_descriptions[indexPath.row]];
-    cell.descriptionLabel.textColor=_textColors[indexPath.row];
     [cell.theImageView setImage:[UIImage imageNamed:_pictures[indexPath.row]]];
 //    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:_backgrounds[indexPath.row]]];
 //    [imageView setFrame:cell.frame];

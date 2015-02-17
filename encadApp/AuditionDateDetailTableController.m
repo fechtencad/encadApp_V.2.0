@@ -19,6 +19,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //set background
+    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"background_audition_bird.png"]];
+    [imageView setContentMode:UIViewContentModeScaleAspectFill];
+    self.tableView.backgroundView = imageView;
+
+    
     //set title
     self.navigationItem.title=_auditionDate.schulungs_name;
     
