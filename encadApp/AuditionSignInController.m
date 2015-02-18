@@ -37,6 +37,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //set background
+    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"background_audition_bird.png"]];
+    imageView.frame=CGRectMake(0.0, 0.0, self.view.frame.size.width, self.view.frame.size.height);
+    [_scrollView setAlpha:1.0];
+    
+    [self.view insertSubview:imageView belowSubview:_scrollView];
         
     //set title
     self.navigationItem.title = @"Anfrage zur Schulung";
@@ -134,12 +140,12 @@
 
 //Push view
 -(void)pushViewDown{
-    [self.view setFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+    [self.view setFrame:CGRectMake(0.0, 0.0, self.view.bounds.size.width, self.view.bounds.size.height)];
     
 }
 //Push view
 -(void)pushViewUp:(float)size{
-    [self.view setFrame:CGRectMake(0, -size, self.view.bounds.size.width, self.view.bounds.size.height)];
+    [self.view setFrame:CGRectMake(0.0, -size, self.view.bounds.size.width, self.view.bounds.size.height)];
     
 }
 
@@ -174,6 +180,5 @@
  // Pass the selected object to the new view controller.
  }
  */
-
 
 @end
