@@ -31,7 +31,7 @@
     _labelTitles = @[
                      @"Schulungen",
                      @"Veranstaltungen",
-                     @"Support",
+                     @"Hotline",
                      @"Wir über uns",
                      @"Anfahrt",
                      @"Impressum"

@@ -37,7 +37,7 @@
                 @"auditionTable"];
     
     _titles=@[@"Termine",
-              @"Schulungen"];
+              @"Kurse"];
     
     _descriptions=@[@"Sehen Sie hier alle Schulungstermine der encad consulting und senden sie gleich eine Anfrage an uns.",
                     @"Durchstöbern Sie unser Schulungsportfolio und finden sie die passende Schulung für Sie."];

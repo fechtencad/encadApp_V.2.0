@@ -46,7 +46,7 @@
     [super viewDidLoad];
     
     //set background
-    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@""]];
+    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"background_event_bird.png"]];
     imageView.frame=CGRectMake(0.0, 0.0, self.view.frame.size.width, self.view.frame.size.height);
     [_scrollView setAlpha:1.0];
     

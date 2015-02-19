@@ -22,15 +22,16 @@
         <attribute name="uhrzeit" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Webinar" representedClassName="Webinar" syncable="YES">
-        <attribute name="anfangs_datum" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="end_datum" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="datum" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="end_zeit" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="uhrzeit" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="start_zeit" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="Schulung" positionX="-72" positionY="-27" width="128" height="103"/>
         <element name="Schulungstermin" positionX="-81" positionY="-180" width="128" height="133"/>
         <element name="Veranstaltung" positionX="115" positionY="-36" width="128" height="118"/>
-        <element name="Webinar" positionX="108" positionY="-175" width="128" height="103"/>
+        <element name="Webinar" positionX="108" positionY="-175" width="128" height="120"/>
     </elements>
 </model>

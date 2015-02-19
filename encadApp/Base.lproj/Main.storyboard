@@ -736,6 +736,24 @@
             </objects>
             <point key="canvasLocation" x="2214" y="722"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="MLw-CW-N7v">
+            <objects>
+                <viewController id="iEZ-Vi-YP2" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iRJ-OD-QS5"/>
+                        <viewControllerLayoutGuide type="bottom" id="NLJ-I7-m9C"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sCF-k1-p7g">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H8N-Bv-yDt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1543" y="1524"/>
+        </scene>
         <!--Event Sign In Controller-->
         <scene sceneID="N7N-bp-2PH">
             <objects>
@@ -1011,10 +1029,10 @@
         <scene sceneID="DIH-Ze-BEw">
             <objects>
                 <tableViewController storyboardIdentifier="eventTaskSelector" id="ciN-dG-G42" customClass="EventTaskSelectorTableController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="M9e-dY-5Nf">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="M9e-dY-5Nf">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventTaskSelectorCell" rowHeight="88" id="vhq-VD-Odn" customClass="EventTaskSelectorTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>

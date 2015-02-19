@@ -138,6 +138,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     PDFController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"pdf"];
     vc.event=[_fetchedResultController objectAtIndexPath:indexPath];
+    vc.backgroundPicture=@"background_event_bird.png";
     [self.navigationController pushViewController:vc animated:YES];
 }
 

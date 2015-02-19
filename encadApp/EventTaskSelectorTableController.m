@@ -23,6 +23,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //set background
+    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"background_event_bird.png"]];
+    [imageView setContentMode:UIViewContentModeScaleAspectFill];
+    self.tableView.backgroundView = imageView;
+    
     //configure data
     _titles = @[@"Veranstaltungen",
                 @"Webinare"];
