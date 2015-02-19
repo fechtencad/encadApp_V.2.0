@@ -10,10 +10,10 @@
         <scene sceneID="kQz-SY-vNJ">
             <objects>
                 <tableViewController storyboardIdentifier="auditionTaskSelector" id="SfN-vB-khW" customClass="AuditionTaskSelectorTable" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" id="Rc7-gJ-Pou">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Rc7-gJ-Pou">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="auditionTaskCell" rowHeight="88" id="ZKv-bD-mN5" customClass="AudtionTaskTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -22,9 +22,6 @@
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="jIO-ls-HXM">
                                             <rect key="frame" x="104" y="41" width="463" height="47"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="47" id="zI3-4L-8Sx"/>
-                                            </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -54,7 +51,6 @@
                                         <constraint firstItem="jIO-ls-HXM" firstAttribute="bottom" secondItem="FyP-pC-avU" secondAttribute="bottom" id="UpG-Al-Lt6"/>
                                         <constraint firstItem="9kH-oI-7cY" firstAttribute="top" secondItem="EGD-xh-eQh" secondAttribute="topMargin" id="a4F-d6-IDW"/>
                                         <constraint firstItem="9kH-oI-7cY" firstAttribute="leading" secondItem="FyP-pC-avU" secondAttribute="trailing" constant="8" symbolic="YES" id="cFw-Ov-8MH"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="FyP-pC-avU" secondAttribute="bottom" constant="-8.5" id="efK-0R-Yyl"/>
                                         <constraint firstAttribute="trailing" secondItem="9kH-oI-7cY" secondAttribute="trailing" id="enC-g3-7Yy"/>
                                         <constraint firstItem="jIO-ls-HXM" firstAttribute="top" secondItem="9kH-oI-7cY" secondAttribute="bottom" constant="9" id="sDe-H2-3fI"/>
                                     </constraints>
