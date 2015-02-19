@@ -1,50 +1,55 @@
 //
-//  AuditionTableController.m
+//  EventTableController.m
 //  encadApp
 //
-//  Created by Bernd Fecht (encad-consulting.de) on 13.02.15.
+//  Created by Bernd Fecht (encad-consulting.de) on 18.02.15.
 //  Copyright (c) 2015 Bernd Fecht (encad-consulting.de). All rights reserved.
 //
 
-#import "AuditionTableController.h"
+#import "EventTableController.h"
 #import <CoreData/CoreData.h>
 #import "AppDelegate.h"
-#import "AuditionTableViewCell.h"
-#import "Schulung.h"
+#import "EventTableViewCell.h"
+#import "Veranstaltung.h"
 #import "PDFController.h"
 
-@interface AuditionTableController ()<NSFetchedResultsControllerDelegate,UITableViewDataSource,UITableViewDelegate,UIToolbarDelegate>{
+@interface EventTableController ()<NSFetchedResultsControllerDelegate,UITableViewDataSource,UITableViewDelegate,UIToolbarDelegate>{
     AppDelegate *_delegate;
     NSFetchedResultsController *_fetchedResultController;
 }
 
 @property (nonatomic, strong) NSSortDescriptor *theDescriptor;
+@property (nonatomic, strong) NSString* serverPath;
 
 @end
 
-@implementation AuditionTableController
+@implementation EventTableController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //get server path
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    _serverPath = [defaults stringForKey:@"serverPath"];
+    
     //Set Title
-    self.navigationItem.title=@"Schulungen der encad consulting";
+    self.navigationItem.title=@"Veranstaltungen der encad consulting";
     
     //Configurate the data-Download
     _delegate = (AppDelegate*) [[UIApplication sharedApplication]delegate];
-    self.theDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    self.theDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"anfangs_datum" ascending:YES];
     
     [self initCoreDataFetch];
     
     // Initialize the refresh control.
     self.refreshControl = [[UIRefreshControl alloc] init];
-    self.refreshControl.backgroundColor = [UIColor colorWithRed:0.867f green:0.643f blue:0.204f alpha:1.00f];
+    self.refreshControl.backgroundColor = [UIColor purpleColor];
     self.refreshControl.tintColor = [UIColor whiteColor];
     [self.refreshControl addTarget:self
                             action:@selector(reloadData)
                   forControlEvents:UIControlEventValueChanged];
-}
 
+}
 
 -(void)initCoreDataFetch{
     NSFetchRequest *request = self.fetchRequest;
@@ -65,14 +70,14 @@
  */
 -(NSFetchRequest *)fetchRequest{
     NSFetchRequest *theFetch = [[NSFetchRequest alloc]init];
-    NSEntityDescription *theType = [NSEntityDescription entityForName:@"Schulung" inManagedObjectContext:_delegate.managedObjectContext];
+    NSEntityDescription *theType = [NSEntityDescription entityForName:@"Veranstaltung" inManagedObjectContext:_delegate.managedObjectContext];
     theFetch.entity = theType;
     theFetch.sortDescriptors = @[self.theDescriptor];
     return theFetch;
 }
 
 -(void)reloadData{
-    [_delegate runSchulungScripts];
+    [_delegate runVeranstaltungScripts];
     
     [self initCoreDataFetch];
     [self.tableView reloadData];
@@ -99,7 +104,7 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return [[_fetchedResultController sections]count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -110,27 +115,32 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *identifier = @"auditionCell";
-    AuditionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    Veranstaltung *event = [_fetchedResultController objectAtIndexPath:indexPath];
+    
+    static NSString *identifier = @"eventCell";
+    EventTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
     
     // Configure the cell...
-        Schulung *audition = [_fetchedResultController objectAtIndexPath:indexPath];
-    cell.titleLabel.text = audition.name;
-    cell.softwareLabel.text = audition.zusatz;
-    [cell setDurationLableText:audition.dauer];
+    cell.titleLabel.text=event.name;
+    cell.locationLabel.text=[@"Ort: "stringByAppendingString:event.ort];
+    cell.timeLabel.text=[@"Uhrzeit: " stringByAppendingString:event.uhrzeit];
+    [cell setStartDateLabelText:event.anfangs_datum];
+    [cell setEndDateLabelText:event.end_datum];
+    NSString *urlString = [[[_serverPath stringByAppendingString:@"pdf/agenda/"] stringByAppendingString:event.name] stringByAppendingString:@".pdf"];
+    NSURL *url = [NSURL URLWithString:urlString];
+    [cell setAgendaWebViewWithURL:url];
+    
+    
     
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    Schulung *audition = [_fetchedResultController objectAtIndexPath:indexPath];
-    
     PDFController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"pdf"];
-    
-    vc.audition = audition;
-    
+    vc.event=[_fetchedResultController objectAtIndexPath:indexPath];
     [self.navigationController pushViewController:vc animated:YES];
 }
+
 
 /*
 // Override to support conditional editing of the table view.

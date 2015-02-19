@@ -22,6 +22,10 @@
 		3A026EB51A8B961400CD0DD4 /* aboutus_bird.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A026EB41A8B961400CD0DD4 /* aboutus_bird.png */; };
 		3A026EB91A8B979400CD0DD4 /* gps_bird.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A026EB81A8B979400CD0DD4 /* gps_bird.png */; };
 		3A026EBB1A8B9A4000CD0DD4 /* impressum_bird.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A026EBA1A8B9A4000CD0DD4 /* impressum_bird.png */; };
+		3A2C23131A94956900522EB5 /* EventTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2C23121A94956900522EB5 /* EventTableController.m */; };
+		3A2C23161A949DC400522EB5 /* EventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2C23151A949DC400522EB5 /* EventTableViewCell.m */; };
+		3A2C23191A94BD1600522EB5 /* PDFController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2C23181A94BD1600522EB5 /* PDFController.m */; };
+		3A2C231C1A94CB5000522EB5 /* EventSignInController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2C231B1A94CB5000522EB5 /* EventSignInController.m */; };
 		3A2E22411A8CCEA300E1AB2A /* AuditionTaskSelectorTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E22401A8CCEA300E1AB2A /* AuditionTaskSelectorTable.m */; };
 		3A2E22441A8CCEEF00E1AB2A /* AudtionTaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E22431A8CCEEF00E1AB2A /* AudtionTaskTableViewCell.m */; };
 		3A2E22501A8CDEDA00E1AB2A /* background_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2E224F1A8CDEDA00E1AB2A /* background_blue.png */; };
@@ -38,14 +42,15 @@
 		3A2E22901A8D0BC200E1AB2A /* Schulung.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E228F1A8D0BC200E1AB2A /* Schulung.m */; };
 		3A2E22931A8D0BC200E1AB2A /* Webinar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E22921A8D0BC200E1AB2A /* Webinar.m */; };
 		3A2E22961A8D0BC200E1AB2A /* Veranstaltung.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E22951A8D0BC200E1AB2A /* Veranstaltung.m */; };
+		3A3729321A9489EC00BAE19E /* EventTaskSelectorTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3729311A9489EC00BAE19E /* EventTaskSelectorTableController.m */; };
+		3A3729361A948B0E00BAE19E /* EventTaskSelectorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3729351A948B0E00BAE19E /* EventTaskSelectorTableViewCell.m */; };
+		3A63B93F1A95FD3A00DEC141 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A63B93E1A95FD3A00DEC141 /* MapKit.framework */; };
 		3A7E45DC1A932E88001D9C39 /* AuditionSignInController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7E45DB1A932E88001D9C39 /* AuditionSignInController.m */; };
-		3A7E45DF1A933C20001D9C39 /* AuditionDateDetailTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7E45DE1A933C20001D9C39 /* AuditionDateDetailTableController.m */; };
 		3A7E45E91A938869001D9C39 /* catia_screen_bird.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A7E45E71A938869001D9C39 /* catia_screen_bird.png */; };
 		3A7E45EA1A938869001D9C39 /* datasheet_bird.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A7E45E81A938869001D9C39 /* datasheet_bird.png */; };
 		3A7E45EC1A938A95001D9C39 /* background_audition_bird.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A7E45EB1A938A95001D9C39 /* background_audition_bird.png */; };
 		3AB4DF161A8E217900190C95 /* AuditionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB4DF151A8E217900190C95 /* AuditionTableViewCell.m */; };
 		3AB4DF191A8E21D600190C95 /* AuditionTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB4DF181A8E21D600190C95 /* AuditionTableController.m */; };
-		3AB4DF2E1A8E486C00190C95 /* AuditionDetailTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB4DF2D1A8E486C00190C95 /* AuditionDetailTableController.m */; };
 		3AF191A51A8E0936002D05B9 /* AuditionDatesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF191A41A8E0936002D05B9 /* AuditionDatesController.m */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +87,14 @@
 		3A026EB41A8B961400CD0DD4 /* aboutus_bird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aboutus_bird.png; sourceTree = "<group>"; };
 		3A026EB81A8B979400CD0DD4 /* gps_bird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gps_bird.png; sourceTree = "<group>"; };
 		3A026EBA1A8B9A4000CD0DD4 /* impressum_bird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = impressum_bird.png; sourceTree = "<group>"; };
+		3A2C23111A94956900522EB5 /* EventTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTableController.h; sourceTree = "<group>"; };
+		3A2C23121A94956900522EB5 /* EventTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventTableController.m; sourceTree = "<group>"; };
+		3A2C23141A949DC400522EB5 /* EventTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTableViewCell.h; sourceTree = "<group>"; };
+		3A2C23151A949DC400522EB5 /* EventTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventTableViewCell.m; sourceTree = "<group>"; };
+		3A2C23171A94BD1600522EB5 /* PDFController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFController.h; sourceTree = "<group>"; };
+		3A2C23181A94BD1600522EB5 /* PDFController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFController.m; sourceTree = "<group>"; };
+		3A2C231A1A94CB5000522EB5 /* EventSignInController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventSignInController.h; sourceTree = "<group>"; };
+		3A2C231B1A94CB5000522EB5 /* EventSignInController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventSignInController.m; sourceTree = "<group>"; };
 		3A2E223F1A8CCEA300E1AB2A /* AuditionTaskSelectorTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuditionTaskSelectorTable.h; sourceTree = "<group>"; };
 		3A2E22401A8CCEA300E1AB2A /* AuditionTaskSelectorTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuditionTaskSelectorTable.m; sourceTree = "<group>"; };
 		3A2E22421A8CCEEF00E1AB2A /* AudtionTaskTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudtionTaskTableViewCell.h; sourceTree = "<group>"; };
@@ -105,10 +118,13 @@
 		3A2E22921A8D0BC200E1AB2A /* Webinar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Webinar.m; sourceTree = "<group>"; };
 		3A2E22941A8D0BC200E1AB2A /* Veranstaltung.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Veranstaltung.h; sourceTree = "<group>"; };
 		3A2E22951A8D0BC200E1AB2A /* Veranstaltung.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Veranstaltung.m; sourceTree = "<group>"; };
+		3A3729301A9489EC00BAE19E /* EventTaskSelectorTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTaskSelectorTableController.h; sourceTree = "<group>"; };
+		3A3729311A9489EC00BAE19E /* EventTaskSelectorTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventTaskSelectorTableController.m; sourceTree = "<group>"; };
+		3A3729341A948B0E00BAE19E /* EventTaskSelectorTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTaskSelectorTableViewCell.h; sourceTree = "<group>"; };
+		3A3729351A948B0E00BAE19E /* EventTaskSelectorTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventTaskSelectorTableViewCell.m; sourceTree = "<group>"; };
+		3A63B93E1A95FD3A00DEC141 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3A7E45DA1A932E88001D9C39 /* AuditionSignInController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuditionSignInController.h; sourceTree = "<group>"; };
 		3A7E45DB1A932E88001D9C39 /* AuditionSignInController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuditionSignInController.m; sourceTree = "<group>"; };
-		3A7E45DD1A933C20001D9C39 /* AuditionDateDetailTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuditionDateDetailTableController.h; sourceTree = "<group>"; };
-		3A7E45DE1A933C20001D9C39 /* AuditionDateDetailTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuditionDateDetailTableController.m; sourceTree = "<group>"; };
 		3A7E45E71A938869001D9C39 /* catia_screen_bird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = catia_screen_bird.png; sourceTree = "<group>"; };
 		3A7E45E81A938869001D9C39 /* datasheet_bird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = datasheet_bird.png; sourceTree = "<group>"; };
 		3A7E45EB1A938A95001D9C39 /* background_audition_bird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_audition_bird.png; sourceTree = "<group>"; };
@@ -116,8 +132,6 @@
 		3AB4DF151A8E217900190C95 /* AuditionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuditionTableViewCell.m; sourceTree = "<group>"; };
 		3AB4DF171A8E21D600190C95 /* AuditionTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuditionTableController.h; sourceTree = "<group>"; };
 		3AB4DF181A8E21D600190C95 /* AuditionTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuditionTableController.m; sourceTree = "<group>"; };
-		3AB4DF2C1A8E486C00190C95 /* AuditionDetailTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuditionDetailTableController.h; sourceTree = "<group>"; };
-		3AB4DF2D1A8E486C00190C95 /* AuditionDetailTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuditionDetailTableController.m; sourceTree = "<group>"; };
 		3AF191A31A8E0936002D05B9 /* AuditionDatesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuditionDatesController.h; sourceTree = "<group>"; };
 		3AF191A41A8E0936002D05B9 /* AuditionDatesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuditionDatesController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,6 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A63B93F1A95FD3A00DEC141 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +158,7 @@
 		3A026E511A8B427300CD0DD4 = {
 			isa = PBXGroup;
 			children = (
+				3A63B93E1A95FD3A00DEC141 /* MapKit.framework */,
 				3A026E5C1A8B427300CD0DD4 /* encadApp */,
 				3A026E791A8B427300CD0DD4 /* encadAppTests */,
 				3A026E5B1A8B427300CD0DD4 /* Products */,
@@ -205,9 +221,12 @@
 		3A026E861A8B428F00CD0DD4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3A7E45E51A9385CE001D9C39 /* AuditionControllers */,
 				3A026E991A8B4D5C00CD0DD4 /* HomeScreenTable.h */,
 				3A026E9A1A8B4D5C00CD0DD4 /* HomeScreenTable.m */,
+				3A2C23171A94BD1600522EB5 /* PDFController.h */,
+				3A2C23181A94BD1600522EB5 /* PDFController.m */,
+				3A37292F1A9489BE00BAE19E /* EventControllers */,
+				3A7E45E51A9385CE001D9C39 /* AuditionControllers */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -215,6 +234,7 @@
 		3A026E871A8B47C200CD0DD4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3A3729331A948AF100BAE19E /* EventViews */,
 				3A7E45E61A938645001D9C39 /* AuditionViews */,
 				3A026EA31A8B666700CD0DD4 /* HomeScreenTableViewCell.h */,
 				3A026EA41A8B666700CD0DD4 /* HomeScreenTableViewCell.m */,
@@ -263,6 +283,30 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		3A37292F1A9489BE00BAE19E /* EventControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3A3729301A9489EC00BAE19E /* EventTaskSelectorTableController.h */,
+				3A3729311A9489EC00BAE19E /* EventTaskSelectorTableController.m */,
+				3A2C23111A94956900522EB5 /* EventTableController.h */,
+				3A2C23121A94956900522EB5 /* EventTableController.m */,
+				3A2C231A1A94CB5000522EB5 /* EventSignInController.h */,
+				3A2C231B1A94CB5000522EB5 /* EventSignInController.m */,
+			);
+			name = EventControllers;
+			sourceTree = "<group>";
+		};
+		3A3729331A948AF100BAE19E /* EventViews */ = {
+			isa = PBXGroup;
+			children = (
+				3A3729341A948B0E00BAE19E /* EventTaskSelectorTableViewCell.h */,
+				3A3729351A948B0E00BAE19E /* EventTaskSelectorTableViewCell.m */,
+				3A2C23141A949DC400522EB5 /* EventTableViewCell.h */,
+				3A2C23151A949DC400522EB5 /* EventTableViewCell.m */,
+			);
+			name = EventViews;
+			sourceTree = "<group>";
+		};
 		3A7E45E51A9385CE001D9C39 /* AuditionControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,12 +316,8 @@
 				3AF191A41A8E0936002D05B9 /* AuditionDatesController.m */,
 				3AB4DF171A8E21D600190C95 /* AuditionTableController.h */,
 				3AB4DF181A8E21D600190C95 /* AuditionTableController.m */,
-				3AB4DF2C1A8E486C00190C95 /* AuditionDetailTableController.h */,
-				3AB4DF2D1A8E486C00190C95 /* AuditionDetailTableController.m */,
 				3A7E45DA1A932E88001D9C39 /* AuditionSignInController.h */,
 				3A7E45DB1A932E88001D9C39 /* AuditionSignInController.m */,
-				3A7E45DD1A933C20001D9C39 /* AuditionDateDetailTableController.h */,
-				3A7E45DE1A933C20001D9C39 /* AuditionDateDetailTableController.m */,
 			);
 			name = AuditionControllers;
 			sourceTree = "<group>";
@@ -352,6 +392,11 @@
 					3A026E591A8B427300CD0DD4 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = 8KF8QNG45P;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					3A026E751A8B427300CD0DD4 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -421,24 +466,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AB4DF2E1A8E486C00190C95 /* AuditionDetailTableController.m in Sources */,
+				3A3729361A948B0E00BAE19E /* EventTaskSelectorTableViewCell.m in Sources */,
 				3A2E22931A8D0BC200E1AB2A /* Webinar.m in Sources */,
+				3A2C231C1A94CB5000522EB5 /* EventSignInController.m in Sources */,
 				3A2E22901A8D0BC200E1AB2A /* Schulung.m in Sources */,
 				3AB4DF191A8E21D600190C95 /* AuditionTableController.m in Sources */,
 				3A026E631A8B427300CD0DD4 /* AppDelegate.m in Sources */,
 				3A2E22411A8CCEA300E1AB2A /* AuditionTaskSelectorTable.m in Sources */,
 				3A026E601A8B427300CD0DD4 /* main.m in Sources */,
 				3A026EA51A8B666700CD0DD4 /* HomeScreenTableViewCell.m in Sources */,
-				3A7E45DF1A933C20001D9C39 /* AuditionDateDetailTableController.m in Sources */,
+				3A3729321A9489EC00BAE19E /* EventTaskSelectorTableController.m in Sources */,
 				3A2E226C1A8CF30A00E1AB2A /* AuditionDateTableViewCell.m in Sources */,
 				3A7E45DC1A932E88001D9C39 /* AuditionSignInController.m in Sources */,
 				3A2E22961A8D0BC200E1AB2A /* Veranstaltung.m in Sources */,
 				3A026E9B1A8B4D5C00CD0DD4 /* HomeScreenTable.m in Sources */,
 				3A026E961A8B493D00CD0DD4 /* Model.xcdatamodeld in Sources */,
+				3A2C23161A949DC400522EB5 /* EventTableViewCell.m in Sources */,
+				3A2C23191A94BD1600522EB5 /* PDFController.m in Sources */,
 				3A2E22441A8CCEEF00E1AB2A /* AudtionTaskTableViewCell.m in Sources */,
 				3AF191A51A8E0936002D05B9 /* AuditionDatesController.m in Sources */,
 				3AB4DF161A8E217900190C95 /* AuditionTableViewCell.m in Sources */,
 				3A2E228D1A8D0BC100E1AB2A /* Schulungstermin.m in Sources */,
+				3A2C23131A94956900522EB5 /* EventTableController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

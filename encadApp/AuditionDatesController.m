@@ -11,7 +11,7 @@
 #import "AppDelegate.h"
 #import "AuditionDateTableViewCell.h"
 #import "Schulungstermin.h"
-#import "AuditionDateDetailTableController.h"
+#import "PDFController.h"
 
 @interface AuditionDatesController ()<NSFetchedResultsControllerDelegate,UITableViewDataSource,UITableViewDelegate,UIToolbarDelegate>{
     AppDelegate *_delegate;
@@ -24,7 +24,12 @@
 @property (weak, nonatomic) IBOutlet UIToolbar *cityToolbar;
 @property (nonatomic, strong) NSPredicate *thePredicate;
 @property (nonatomic, strong) NSString *serverPath;
+@property (nonatomic, strong) UISegmentedControl *segmentedControl;
+//0=Augsburg; 1=Hamburg
+@property int currentCity;
 
+@property BOOL emptyAugsburg;
+@property BOOL emptyHamburg;
 
 
 @end
@@ -37,6 +42,9 @@
     
     //Set Title
     self.navigationItem.title=@"Schulungen in Augsburg";
+    
+    //Set current city
+    _currentCity=0;
     
     //Set Delegates
     [_auditionTableView setDelegate:self];
@@ -65,13 +73,13 @@
      UIBarButtonItem *spaceRight = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     
     NSArray *segItemsArray = [NSArray arrayWithObjects: @"Augsburg", @"Hamburg", nil];
-    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:segItemsArray];
-    segmentedControl.selectedSegmentIndex=0;
-    segmentedControl.tintColor=[UIColor colorWithRed:0.867f green:0.643f blue:0.204f alpha:1.00f];
-    [segmentedControl addTarget:self
+    _segmentedControl = [[UISegmentedControl alloc] initWithItems:segItemsArray];
+    _segmentedControl.selectedSegmentIndex=0;
+    _segmentedControl.tintColor=[UIColor colorWithRed:0.867f green:0.643f blue:0.204f alpha:1.00f];
+    [_segmentedControl addTarget:self
                          action:@selector(changedCity:)
                forControlEvents:UIControlEventValueChanged];
-    UIBarButtonItem *segmentedControlButtonItem = [[UIBarButtonItem alloc] initWithCustomView:(UIView *)segmentedControl];
+    UIBarButtonItem *segmentedControlButtonItem = [[UIBarButtonItem alloc] initWithCustomView:(UIView *)_segmentedControl];
   
     NSArray *items = [NSArray arrayWithObjects:spaceLeft, segmentedControlButtonItem, spaceRight, nil];
     
@@ -80,24 +88,29 @@
     //Get serverPath
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     _serverPath = [defaults stringForKey:@"serverPath"];
+    
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:YES];
 }
 
 -(void)checkforEmptyTable{
-    id sectionInfo = [[_fetchedResultController sections] objectAtIndex:0];
-    if([sectionInfo numberOfObjects] == 0){
-        if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_7_1) {
-            if(_theSubPredicate!=nil){
-                UIAlertController *alert = [UIAlertController alertControllerWithTitle:[@"Keine Termine für " stringByAppendingString:self.navigationItem.title] message:@"Für diese Schulung gibt es demnächst leider keine Schulungen in der ausgewählten Stadt. Sie können uns aber gerne eine Anfrage für eine Abhaltung senden." preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction *goBack = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
-                [alert addAction:goBack];
-                [self presentViewController:alert animated:YES completion:nil];
-            }
+       id sectionInfo = [[_fetchedResultController sections] objectAtIndex:0];
+        if([sectionInfo numberOfObjects] == 0){
+              if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_7_1) {
+                    if(_theSubPredicate!=nil){
+                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:[@"Keine Termine für " stringByAppendingString:self.navigationItem.title] message:@"Für diese Schulung gibt es demnächst leider keine Schulungen in der ausgewählten Stadt. Sie können uns aber gerne eine Anfrage für eine Abhaltung senden." preferredStyle:UIAlertControllerStyleAlert];
+                        UIAlertAction *goBack = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+                        [alert addAction:goBack];
+                        [self presentViewController:alert animated:YES completion:nil];
+                    }
+                }
+                else{
+                    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:[@"Keine Termine für " stringByAppendingString:self.navigationItem.title] message:@"Für diese Schulung gibt es demnächst leider keine Schulungen in der ausgewählten Stadt. Sie können uns aber gerne eine Anfrage für eine Abhaltung senden." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    [alert show];
+                }
         }
-        else{
-            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:[@"Keine Termine für " stringByAppendingString:self.navigationItem.title] message:@"Für diese Schulung gibt es demnächst leider keine Schulungen in der ausgewählten Stadt. Sie können uns aber gerne eine Anfrage für eine Abhaltung senden." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-        }
-    }
 }
 
 -(void)changedCity:(UISegmentedControl*)segmentedControl{
@@ -107,11 +120,13 @@
             _thePredicate = [NSPredicate predicateWithFormat:@"orts_name = 'Augsburg'"];
             //Change title
             self.navigationItem.title=@"Schulungen in Augsburg";
+            _currentCity=0;
             break;
         case 1:
             _thePredicate = [NSPredicate predicateWithFormat:@"orts_name = 'Hamburg'"];
             //Change title
             self.navigationItem.title=@"Schulungen in Hamburg";
+            _currentCity=1;
             break;
             
         default:
@@ -143,6 +158,7 @@
         NSLog(@"Couldn't fetch the Result: %@", theError );
     }
     
+    //check for emtpy table
     [self checkforEmptyTable];
 }
 
@@ -217,7 +233,7 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    AuditionDateDetailTableController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"auditionDateDetail"];
+    PDFController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"pdf"];
     vc.auditionDate = [_fetchedResultController objectAtIndexPath:indexPath];
     [self.navigationController pushViewController:vc animated:YES];
 }

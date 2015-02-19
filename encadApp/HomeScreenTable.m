@@ -14,6 +14,7 @@
 @property (strong) NSArray* labelTitles;
 @property (strong) NSArray* pictureNames;
 @property (strong) NSArray* labelDescriptions;
+@property (strong) NSArray* segues;
 
 @end
 
@@ -51,6 +52,8 @@
                       @"gps_bird.png",
                       @"impressum_bird.png"
                       ];
+    
+    _segues=@[@"auditionTaskSelector",@"eventTaskSelector"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -98,14 +101,7 @@
  */
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    switch (indexPath.row) {
-        case 0:
-            [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"auditionTaskSelectorTable"] animated:true];
-            break;
-            
-        default:
-            break;
-    }
+    [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:_segues[indexPath.row]] animated:true];
 }
 
 /*

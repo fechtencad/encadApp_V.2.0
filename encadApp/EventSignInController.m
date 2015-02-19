@@ -1,30 +1,38 @@
 //
-//  AuditionSignInController.m
+//  EventSignInController.m
 //  encadApp
 //
-//  Created by Bernd Fecht (encad-consulting.de) on 17.02.15.
+//  Created by Bernd Fecht (encad-consulting.de) on 18.02.15.
 //  Copyright (c) 2015 Bernd Fecht (encad-consulting.de). All rights reserved.
 //
 
-#import "AuditionSignInController.h"
+#import "EventSignInController.h"
 
-@interface AuditionSignInController ()<UITextFieldDelegate>
+@interface EventSignInController ()<UITextFieldDelegate>
 
+//Toolbar
+@property (strong, nonatomic) IBOutlet UIToolbar *accViewToolbar;
+//ScrollView
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UILabel *auditionLabel;
+//Lable
+@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+//Button
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sendRequestButton;
+//TextField
 @property (weak, nonatomic) IBOutlet UITextField *firstNameTF;
 @property (weak, nonatomic) IBOutlet UITextField *lastNameTF;
 @property (weak, nonatomic) IBOutlet UITextField *companyTF;
 @property (weak, nonatomic) IBOutlet UITextField *phoneTF;
 @property (weak, nonatomic) IBOutlet UITextField *emailTF;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *sendRequestButton;
-@property (weak, nonatomic) IBOutlet UIToolbar *accViewToolbar;
+//Other
+@property (strong, nonatomic) NSString *serverPath;
+@property (strong, nonatomic) UITextField *activeTF;
 
-@property (nonatomic, strong) NSString *serverPath;
-@property (nonatomic, strong) UITextField *activeTF;
-
+//Action
 - (IBAction)sendRequest:(id)sender;
 - (IBAction)pressedCancelButton:(id)sender;
 - (IBAction)pressedDoneButton:(id)sender;
@@ -32,27 +40,24 @@
 
 @end
 
-@implementation AuditionSignInController
+@implementation EventSignInController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     //set background
-    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"background_audition_bird.png"]];
+    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@""]];
     imageView.frame=CGRectMake(0.0, 0.0, self.view.frame.size.width, self.view.frame.size.height);
     [_scrollView setAlpha:1.0];
     
     [self.view insertSubview:imageView belowSubview:_scrollView];
     
     //set title
-    self.navigationItem.title = @"Anfrage zur Schulung";
+    if(_event)
+        self.navigationItem.title = @"Anfrage zu einer Veranstaltung";
     
-    //set Delegates
-    _firstNameTF.delegate = self;
-    _lastNameTF.delegate = self;
-    _companyTF.delegate = self;
-    _phoneTF.delegate = self;
-    _emailTF.delegate = self;
+    if(_webinar)
+        self.navigationItem.title = @"Anfrage zu einem Webinar";
     
     //set AccessoryViews
     _firstNameTF.inputAccessoryView=_accViewToolbar;
@@ -61,11 +66,15 @@
     _emailTF.inputAccessoryView=_accViewToolbar;
     _phoneTF.inputAccessoryView=_accViewToolbar;
     
+    //set Delegates
+    _firstNameTF.delegate = self;
+    _lastNameTF.delegate = self;
+    _companyTF.delegate = self;
+    _phoneTF.delegate = self;
+    _emailTF.delegate = self;
+    
     //Set scroll view
     [_scrollView setContentSize:CGSizeMake([[UIScreen mainScreen] bounds].size.width, 600.0)];
-    
-    //set labels
-    [self setLabels];
     
     //Get server Path
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -73,6 +82,9 @@
     
     //Disable button
     _sendRequestButton.enabled=false;
+    
+    //Set up view
+    [self checkForEventTypeAndInitialiseView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -80,24 +92,24 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)setLabels{
-    _auditionLabel.text = _auditionDate.schulungs_name;
-    _dateLabel.text = [[[self convertDateString:_auditionDate.datum] stringByAppendingString:@" - "]stringByAppendingString:[self convertDateString:_auditionDate.datum WithDaysToAdd:[_auditionDate.dauer integerValue]]];
-    _locationLabel.text = _auditionDate.orts_name;
+-(void)checkForEventTypeAndInitialiseView{
+    if(_event)
+       [self initEventData];
+    if(_webinar)
+        [self initWebinarData];
 }
 
--(NSString*)convertDateString:(NSString*)dateString WithDaysToAdd:(long)days{
-    days-=1;
-    NSDateFormatter *theFormatter = [[NSDateFormatter alloc]init];
-    [theFormatter setDateFormat:@"yyyy-MM-dd"];
-    NSDate *startDate = [theFormatter dateFromString:dateString];
-    NSDate *endDate = startDate;
-    if(days>0){
-        endDate = [startDate dateByAddingTimeInterval:60*60*24*days];
-    }
-    [theFormatter setDateFormat:@"EE, dd.MM.yyyy"];
-    NSString *convertedDateString = [theFormatter stringFromDate:endDate];
-    return convertedDateString;
+-(void)initEventData{
+    self.typeLabel.text=@"Ich interressiere mich für folgende Veranstaltung";
+    self.titleLabel.text=_event.name;
+    self.dateLabel.text=[NSString stringWithFormat:@"von: %@ bis: %@",[self convertDateString:_event.anfangs_datum],[self convertDateString:_event.end_datum]];
+    self.timeLabel.text=[@"Uhrzeit:" stringByAppendingString:_event.uhrzeit];
+    self.locationLabel.text=[@"Ort: " stringByAppendingString:_event.ort];
+}
+
+//TODO: implement after db set
+-(void)initWebinarData{
+    
 }
 
 -(NSString*)convertDateString:(NSString*)dateString{
@@ -108,9 +120,8 @@
     return [formatter stringFromDate:convertedDate];
 }
 
-
 - (IBAction)sendRequest:(id)sender {
-    NSString *urlString = [_serverPath stringByAppendingString:[NSString stringWithFormat:@"JsonExchange/app_audition_sign_up.php?audition_name=%@&audition_location=%@&audition_start=%@&audition_end=%@&name=%@&surname=%@&email=%@&tel_number=%@&company=%@",_auditionDate.schulungs_name,_auditionDate.orts_name,[self convertDateString:_auditionDate.datum],[self convertDateString:_auditionDate.datum WithDaysToAdd:[_auditionDate.dauer integerValue]],_firstNameTF.text,_lastNameTF.text,_emailTF.text,_phoneTF.text,_companyTF.text]];
+    NSString *urlString = [_serverPath stringByAppendingString:[NSString stringWithFormat:@"JsonExchange/app_event_sign_up.php?event_name=%@&event_location=%@&event_start=%@&event_end=%@&name=%@&surname=%@&email=%@&tel_number=%@&company=%@",_event.name,_event.ort,[self convertDateString:_event.anfangs_datum],[self convertDateString:_event.end_datum],_firstNameTF.text,_lastNameTF.text,_emailTF.text,_phoneTF.text,_companyTF.text]];
     NSURL *url = [[NSURL alloc]initWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
     NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url];
     
@@ -138,7 +149,6 @@
 - (IBAction)tapedScreen:(id)sender {
     [self.view endEditing:YES];
 }
-
 
 //Push view
 -(void)pushViewDown{
@@ -172,15 +182,5 @@
         [self pushViewUp:50.0f];
     }
 }
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

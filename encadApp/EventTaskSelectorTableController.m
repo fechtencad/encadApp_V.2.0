@@ -1,49 +1,40 @@
 //
-//  AuditionTaskSelectorTable.m
+//  EventTaskSelectorTableController.m
 //  encadApp
 //
-//  Created by Bernd Fecht (encad-consulting.de) on 12.02.15.
+//  Created by Bernd Fecht (encad-consulting.de) on 18.02.15.
 //  Copyright (c) 2015 Bernd Fecht (encad-consulting.de). All rights reserved.
 //
 
-#import "AuditionTaskSelectorTable.h"
-#import "AudtionTaskTableViewCell.h"
+#import "EventTaskSelectorTableController.h"
+#import "EventTaskSelectorTableViewCell.h"
 
-@interface AuditionTaskSelectorTable ()
+@interface EventTaskSelectorTableController ()
 
-@property (strong) NSArray *titles;
-@property (strong) NSArray *descriptions;
-@property (strong) NSArray *pictures;
-@property (strong) NSArray *backgrounds;
-@property (strong) NSArray *segues;
+@property (nonatomic, strong) NSArray *titles;
+@property (nonatomic, strong) NSArray *descriptions;
+@property (nonatomic, strong) NSArray *pictures;
+@property (nonatomic, strong) NSArray *segues;
 
 @end
 
-@implementation AuditionTaskSelectorTable
+@implementation EventTaskSelectorTableController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //Set title
-    self.navigationItem.title=@"Schulungen";
+    //configure data
+    _titles = @[@"Veranstaltungen",
+                @"Webinare"];
+    _descriptions=@[@"Informieren Sie sich über die kommenden Veranstaltungen.",
+                    @"Sehen Sie wann eines unserer nächsten Webinare ist."];
+    _pictures=@[@"",
+                @""];
     
-    //set background
-    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"background_audition_bird.png"]];
-    [imageView setContentMode:UIViewContentModeScaleAspectFill];
-    self.tableView.backgroundView = imageView;
+    _segues=@[@"events"];
     
-    //Set Menue Items
-    _segues = @[@"auditionDates",
-                @"auditionTable"];
     
-    _titles=@[@"Termine",
-              @"Schulungen"];
     
-    _descriptions=@[@"Sehen Sie hier alle Schulungstermine der encad consulting und senden sie gleich eine Anfrage an uns.",
-                    @"Durchstöbern Sie unser Schulungsportfolio und finden sie die passende Schulung für Sie."];
-    
-    _pictures=@[@"catia_screen_bird.png",
-                @"datasheet_bird.png"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,39 +45,34 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
     return 2;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *identifier = @"auditionTaskCell";
-    AudtionTaskTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    static NSString *identifier = @"eventTaskSelectorCell";
+    EventTaskSelectorTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
     
     // Configure the cell...
     
-    [cell.titleLabel setText:_titles[indexPath.row]];
-    [cell.descriptionLabel setText:_descriptions[indexPath.row]];
-    [cell.theImageView setImage:[UIImage imageNamed:_pictures[indexPath.row]]];
-//    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:_backgrounds[indexPath.row]]];
-//    [imageView setFrame:cell.frame];
-//    [imageView setContentMode:UIViewContentModeScaleAspectFill];
-//    cell.backgroundView =imageView;
+    cell.titleLabel.text = _titles[indexPath.row];
+    cell.descriptionLabel.text = _descriptions[indexPath.row];
+    cell.eventImageView.image=[UIImage imageNamed:_pictures[indexPath.row]];
     
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:_segues[indexPath.row]] animated:YES];
-}
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 88.0;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:_segues[indexPath.row]] animated:YES];
 }
 
 /*
