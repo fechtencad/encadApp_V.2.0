@@ -43,7 +43,6 @@
 		3A2E22961A8D0BC200E1AB2A /* Veranstaltung.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E22951A8D0BC200E1AB2A /* Veranstaltung.m */; };
 		3A30DF2E1A977150000852CC /* WebinarTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A30DF2D1A977150000852CC /* WebinarTableController.m */; };
 		3A30DF311A97716C000852CC /* WebinarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A30DF301A97716C000852CC /* WebinarTableViewCell.m */; };
-		3A3729321A9489EC00BAE19E /* EventTaskSelectorTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3729311A9489EC00BAE19E /* EventTaskSelectorTableController.m */; };
 		3A3729361A948B0E00BAE19E /* EventTaskSelectorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3729351A948B0E00BAE19E /* EventTaskSelectorTableViewCell.m */; };
 		3A4E0CCF1A97880A007A1776 /* UniversalWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4E0CCE1A97880A007A1776 /* UniversalWebViewController.m */; };
 		3A63B93F1A95FD3A00DEC141 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A63B93E1A95FD3A00DEC141 /* MapKit.framework */; };
@@ -124,8 +123,6 @@
 		3A30DF2D1A977150000852CC /* WebinarTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebinarTableController.m; sourceTree = "<group>"; };
 		3A30DF2F1A97716C000852CC /* WebinarTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebinarTableViewCell.h; sourceTree = "<group>"; };
 		3A30DF301A97716C000852CC /* WebinarTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebinarTableViewCell.m; sourceTree = "<group>"; };
-		3A3729301A9489EC00BAE19E /* EventTaskSelectorTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTaskSelectorTableController.h; sourceTree = "<group>"; };
-		3A3729311A9489EC00BAE19E /* EventTaskSelectorTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventTaskSelectorTableController.m; sourceTree = "<group>"; };
 		3A3729341A948B0E00BAE19E /* EventTaskSelectorTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTaskSelectorTableViewCell.h; sourceTree = "<group>"; };
 		3A3729351A948B0E00BAE19E /* EventTaskSelectorTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventTaskSelectorTableViewCell.m; sourceTree = "<group>"; };
 		3A4E0CCD1A97880A007A1776 /* UniversalWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UniversalWebViewController.h; sourceTree = "<group>"; };
@@ -302,8 +299,6 @@
 			children = (
 				3A30DF2C1A977150000852CC /* WebinarTableController.h */,
 				3A30DF2D1A977150000852CC /* WebinarTableController.m */,
-				3A3729301A9489EC00BAE19E /* EventTaskSelectorTableController.h */,
-				3A3729311A9489EC00BAE19E /* EventTaskSelectorTableController.m */,
 				3A2C23111A94956900522EB5 /* EventTableController.h */,
 				3A2C23121A94956900522EB5 /* EventTableController.m */,
 				3A2C231A1A94CB5000522EB5 /* EventSignInController.h */,
@@ -495,7 +490,6 @@
 				3A2E22411A8CCEA300E1AB2A /* AuditionTaskSelectorTable.m in Sources */,
 				3A026E601A8B427300CD0DD4 /* main.m in Sources */,
 				3A026EA51A8B666700CD0DD4 /* HomeScreenTableViewCell.m in Sources */,
-				3A3729321A9489EC00BAE19E /* EventTaskSelectorTableController.m in Sources */,
 				3A2E226C1A8CF30A00E1AB2A /* AuditionDateTableViewCell.m in Sources */,
 				3A7E45DC1A932E88001D9C39 /* AuditionSignInController.m in Sources */,
 				3A30DF311A97716C000852CC /* WebinarTableViewCell.m in Sources */,

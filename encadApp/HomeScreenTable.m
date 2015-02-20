@@ -31,6 +31,7 @@
     _labelTitles = @[
                      @"Schulungen",
                      @"Veranstaltungen",
+                     @"Webinare",
                      @"Hotline",
                      @"Wir über uns",
                      @"Anfahrt",
@@ -39,6 +40,7 @@
     _labelDescriptions=@[
                          @"Hier können Sie die Schulungen der encad consulting einsehen und bei Interresse eine Anfrage zur Teilnahme versenden.",
                          @"Sehen Sie hier, welche neuen Veranstaltungen es von der encad consulting gibt und melden Sie sich gleich an!",
+                         @"Schauen Sie sich hier unsere interessanten Webinare mit verschiedenen Themen direkt in der App an",
                          @"Sie haben ein Problem oder eine Frage? Schreiben Sie uns über dieses Tool eine Mail mit Ihrem Anliegen.",
                          @"Erfahren Sie, wer die encad consulting ist, und was sie macht.",
                          @"Sie wollen uns vor Ort besuchen, kennen aber den Weg nicht? Kein Problem...",
@@ -47,13 +49,18 @@
     _pictureNames = @[
                       @"audit_bird.png",
                       @"event_bird.png",
+                      @"",
                       @"support_bird.png",
                       @"aboutus_bird.png",
                       @"gps_bird.png",
                       @"impressum_bird.png"
                       ];
     
-    _segues=@[@"auditionTaskSelector",@"eventTaskSelector"];
+    _segues=@[
+              @"auditionTaskSelector",
+              @"events",
+              @"webinars"
+              ];
 }
 
 - (void)didReceiveMemoryWarning {
