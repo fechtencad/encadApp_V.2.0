@@ -1,19 +1,19 @@
 //
-//  EventTableController.m
+//  WebinarTableController.m
 //  encadApp
 //
-//  Created by Bernd Fecht (encad-consulting.de) on 18.02.15.
+//  Created by Bernd Fecht (encad-consulting.de) on 20.02.15.
 //  Copyright (c) 2015 Bernd Fecht (encad-consulting.de). All rights reserved.
 //
 
-#import "EventTableController.h"
+#import "WebinarTableController.h"
 #import <CoreData/CoreData.h>
+#import "Webinar.h"
 #import "AppDelegate.h"
-#import "EventTableViewCell.h"
-#import "Veranstaltung.h"
-#import "PDFController.h"
+#import "WebinarTableViewCell.h"
+#import "UniversalWebViewController.h"
 
-@interface EventTableController ()<NSFetchedResultsControllerDelegate>{
+@interface WebinarTableController ()<NSFetchedResultsControllerDelegate>{
     AppDelegate *_delegate;
     NSFetchedResultsController *_fetchedResultController;
 }
@@ -23,7 +23,7 @@
 
 @end
 
-@implementation EventTableController
+@implementation WebinarTableController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,11 +33,11 @@
     _serverPath = [defaults stringForKey:@"serverPath"];
     
     //Set Title
-    self.navigationItem.title=@"Veranstaltungen der encad consulting";
+    self.navigationItem.title=@"Webinare der encad consulting";
     
     //Configurate the data-Download
     _delegate = (AppDelegate*) [[UIApplication sharedApplication]delegate];
-    self.theDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"anfangs_datum" ascending:YES];
+    self.theDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"datum" ascending:YES];
     
     [self initCoreDataFetch];
     
@@ -70,7 +70,7 @@
  */
 -(NSFetchRequest *)fetchRequest{
     NSFetchRequest *theFetch = [[NSFetchRequest alloc]init];
-    NSEntityDescription *theType = [NSEntityDescription entityForName:@"Veranstaltung" inManagedObjectContext:_delegate.managedObjectContext];
+    NSEntityDescription *theType = [NSEntityDescription entityForName:@"Webinar" inManagedObjectContext:_delegate.managedObjectContext];
     theFetch.entity = theType;
     theFetch.sortDescriptors = @[self.theDescriptor];
     return theFetch;
@@ -96,6 +96,7 @@
 }
 
 
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -115,33 +116,29 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    Veranstaltung *event = [_fetchedResultController objectAtIndexPath:indexPath];
     
-    static NSString *identifier = @"eventCell";
-    EventTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    Webinar *webinar = [_fetchedResultController objectAtIndexPath:indexPath];
+    
+    static NSString* identifier = @"webinarCell";
+    WebinarTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.titleLabel.text=event.name;
-    cell.locationLabel.text=[@"Ort: "stringByAppendingString:event.ort];
-    cell.timeLabel.text=[@"Uhrzeit: " stringByAppendingString:event.uhrzeit];
-    [cell setStartDateLabelText:event.anfangs_datum];
-    [cell setEndDateLabelText:event.end_datum];
-    NSString *urlString = [[[_serverPath stringByAppendingString:@"pdf/agenda/"] stringByAppendingString:event.name] stringByAppendingString:@".pdf"];
-    NSURL *url = [NSURL URLWithString:urlString];
-    [cell setAgendaWebViewWithURL:url];
-    
-    
+    cell.titleLabel.text=webinar.name;
+    [cell setDateLabelText:webinar.datum];
+    cell.startTimeLabel.text=[@"Startzeit: " stringByAppendingString: webinar.start_zeit];
+    cell.endTimeLabel.text=[@"Endzeit: " stringByAppendingString: webinar.end_zeit];
     
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    PDFController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"pdf"];
-    vc.event=[_fetchedResultController objectAtIndexPath:indexPath];
-    vc.backgroundPicture=@"background_event_bird.png";
+    Webinar *webinar = [_fetchedResultController objectAtIndexPath:indexPath];
+    
+    UniversalWebViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"universalWebView"];
+    vc.urlString=webinar.link;
+    
     [self.navigationController pushViewController:vc animated:YES];
 }
-
 
 /*
 // Override to support conditional editing of the table view.

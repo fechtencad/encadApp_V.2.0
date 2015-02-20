@@ -65,14 +65,14 @@
     NSString *jsonString = [_jsonExchangeServerPath  stringByAppendingString:@"webinar.json"];
     NSString *entityName = @"Webinar";
     
-    [self initDataDownloadForURLString:jsonString forEntityName:entityName checkVersion:YES];
+    [self initDataDownloadForURLString:jsonString forEntityName:entityName checkVersion:NO];
 }
 
 -(void)runVeranstaltungScripts{
     NSString *jsonString = [_jsonExchangeServerPath  stringByAppendingString:@"event.json"];
     NSString *entityName = @"Veranstaltung";
     
-    [self initDataDownloadForURLString:jsonString forEntityName:entityName checkVersion:YES];
+    [self initDataDownloadForURLString:jsonString forEntityName:entityName checkVersion:NO];
 }
 
 

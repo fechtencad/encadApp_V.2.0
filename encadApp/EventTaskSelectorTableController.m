@@ -36,7 +36,8 @@
     _pictures=@[@"",
                 @""];
     
-    _segues=@[@"events"];
+    _segues=@[@"events",
+              @"webinars"];
     
     
     
