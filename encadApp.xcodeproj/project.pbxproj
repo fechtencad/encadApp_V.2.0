@@ -54,6 +54,7 @@
 		3AB4DF191A8E21D600190C95 /* AuditionTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB4DF181A8E21D600190C95 /* AuditionTableController.m */; };
 		3ACE57971A9620FA003E4E20 /* background_event_bird.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ACE57961A9620FA003E4E20 /* background_event_bird.png */; };
 		3ACE579A1A962B8C003E4E20 /* Webinar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACE57991A962B8C003E4E20 /* Webinar.m */; };
+		3AE3E28B1A9B195600477C27 /* HotlineController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3E28A1A9B195600477C27 /* HotlineController.m */; };
 		3AF191A51A8E0936002D05B9 /* AuditionDatesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF191A41A8E0936002D05B9 /* AuditionDatesController.m */; };
 /* End PBXBuildFile section */
 
@@ -140,6 +141,8 @@
 		3ACE57961A9620FA003E4E20 /* background_event_bird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_event_bird.png; sourceTree = "<group>"; };
 		3ACE57981A962B8C003E4E20 /* Webinar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Webinar.h; sourceTree = "<group>"; };
 		3ACE57991A962B8C003E4E20 /* Webinar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Webinar.m; sourceTree = "<group>"; };
+		3AE3E2891A9B195600477C27 /* HotlineController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotlineController.h; sourceTree = "<group>"; };
+		3AE3E28A1A9B195600477C27 /* HotlineController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotlineController.m; sourceTree = "<group>"; };
 		3AF191A31A8E0936002D05B9 /* AuditionDatesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuditionDatesController.h; sourceTree = "<group>"; };
 		3AF191A41A8E0936002D05B9 /* AuditionDatesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuditionDatesController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -235,6 +238,7 @@
 				3A026E9A1A8B4D5C00CD0DD4 /* HomeScreenTable.m */,
 				3A2C23171A94BD1600522EB5 /* PDFController.h */,
 				3A2C23181A94BD1600522EB5 /* PDFController.m */,
+				3AE3E2881A9B192000477C27 /* HotlineControllers */,
 				3A37292F1A9489BE00BAE19E /* EventControllers */,
 				3A7E45E51A9385CE001D9C39 /* AuditionControllers */,
 			);
@@ -353,6 +357,15 @@
 			children = (
 			);
 			name = Handlers;
+			sourceTree = "<group>";
+		};
+		3AE3E2881A9B192000477C27 /* HotlineControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3AE3E2891A9B195600477C27 /* HotlineController.h */,
+				3AE3E28A1A9B195600477C27 /* HotlineController.m */,
+			);
+			name = HotlineControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -494,6 +507,7 @@
 				3A7E45DC1A932E88001D9C39 /* AuditionSignInController.m in Sources */,
 				3A30DF311A97716C000852CC /* WebinarTableViewCell.m in Sources */,
 				3A2E22961A8D0BC200E1AB2A /* Veranstaltung.m in Sources */,
+				3AE3E28B1A9B195600477C27 /* HotlineController.m in Sources */,
 				3A026E9B1A8B4D5C00CD0DD4 /* HomeScreenTable.m in Sources */,
 				3A026E961A8B493D00CD0DD4 /* Model.xcdatamodeld in Sources */,
 				3A2C23161A949DC400522EB5 /* EventTableViewCell.m in Sources */,

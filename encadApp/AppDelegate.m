@@ -162,21 +162,29 @@
 }
 
 -(void)fillInDataByURLString:(NSString*)inURL forEntityName:(NSString*)inEntityName{
-    NSError *theError;
-    NSURL *theUrl = [NSURL URLWithString:inURL];
-    NSData *theData = [NSData dataWithContentsOfURL:theUrl options:0 error:&theError];
-    
-    NSArray *jsonObject = [NSJSONSerialization JSONObjectWithData:theData options:0 error:&theError];
-    
-    if(!jsonObject){
-        NSLog(@"There was a Problem retriving the Json File: %@", theError);
-    }
-    else{
-        for(NSDictionary *dict in jsonObject){
-            [self createObjectFromDictionary:dict forEntityName:inEntityName];
+    @try{
+        NSError *theError;
+        NSURL *theUrl = [NSURL URLWithString:inURL];
+        NSData *theData = [NSData dataWithContentsOfURL:theUrl options:0 error:&theError];
+        
+        NSArray *jsonObject = [NSJSONSerialization JSONObjectWithData:theData options:0 error:&theError];
+        
+        if(!jsonObject){
+            NSLog(@"There was a Problem retriving the Json File: %@", theError);
         }
-        [self saveContext];
+        else{
+            for(NSDictionary *dict in jsonObject){
+                [self createObjectFromDictionary:dict forEntityName:inEntityName];
+            }
+            [self saveContext];
+        }
     }
+    @catch(NSException *exception){
+        if([exception isMemberOfClass:NSInvalidArgumentException.class]){
+            NSLog(@"Couldn't get a connection to server, data is nil. Abort download!");
+        }
+    }
+
     
 }
 

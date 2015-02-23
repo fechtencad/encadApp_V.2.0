@@ -59,7 +59,8 @@
     _segues=@[
               @"auditionTaskSelector",
               @"events",
-              @"webinars"
+              @"webinars",
+              @"hotline",
               ];
 }
 
