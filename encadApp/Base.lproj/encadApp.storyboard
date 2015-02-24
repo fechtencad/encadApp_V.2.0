@@ -1694,11 +1694,14 @@ Cg
                                     <segment title="" image="bicycle_32.png"/>
                                     <segment title="" image="walking_32.png"/>
                                 </segments>
+                                <connections>
+                                    <action selector="changedNavigationType:" destination="Xao-Vr-UfO" eventType="valueChanged" id="Zwt-yq-850"/>
+                                </connections>
                             </segmentedControl>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zDP-9w-eaf">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem image="Layers-32.png" id="kaT-qv-muZ">
+                                    <barButtonItem image="layers_top.png" id="kaT-qv-muZ">
                                         <connections>
                                             <action selector="pressedLayerButton:" destination="Xao-Vr-UfO" id="LkY-VV-8JW"/>
                                         </connections>
@@ -1710,12 +1713,6 @@ Cg
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="RFq-Wo-nlg"/>
-                                    <barButtonItem enabled="NO" systemItem="stop" id="9bK-LE-j8t">
-                                        <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="pressedStopButton:" destination="Xao-Vr-UfO" id="DtL-Ut-gzP"/>
-                                        </connections>
-                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8w-gI-BBp">
@@ -1749,9 +1746,9 @@ Cg
                         <outlet property="activityIndicator" destination="Ai8-BR-gTX" id="whD-tw-LVO"/>
                         <outlet property="connectionSymbol" destination="M8w-gI-BBp" id="ZuQ-r2-gQ1"/>
                         <outlet property="gpsEnabled" destination="M8w-gI-BBp" id="nMZ-aK-bTo"/>
+                        <outlet property="mapTypeButton" destination="kaT-qv-muZ" id="Qms-Zu-n5C"/>
                         <outlet property="mapView" destination="RTj-Wj-JRp" id="CZF-Xo-2ak"/>
                         <outlet property="navigationStartButton" destination="CXb-0T-2XV" id="AfI-QV-Sdv"/>
-                        <outlet property="stopButton" destination="9bK-LE-j8t" id="foH-Eg-WdI"/>
                         <segue destination="enY-Y1-9C6" kind="show" identifier="route" id="eiH-Y6-Uqd"/>
                     </connections>
                 </viewController>
@@ -1904,12 +1901,114 @@ Cg
                     <view key="view" contentMode="scaleToFill" id="bsX-cG-ca6">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4l3-WT-fVf">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Hauptsitz Augsburg
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.98431372549019602" green="0.0" blue="0.027450980392156862" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="12" name="Arial-BoldMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">encad consulting GmbH Morellstraße 33 D 86159 Augsburg
+Telefon 0821 / 90 670-100 Telefax 0821 / 90 670-200 </string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.16078431372549021" green="0.13725490196078433" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="12" name="ArialMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="info@encad-consulting.de">
+                                        <attributes>
+                                            <color key="NSColor" red="0.16078431372549021" green="0.13725490196078433" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="12" name="Arial-BoldMT"/>
+                                            <url key="NSLink" string="mailto:info@encad-consulting.de"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cgo
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.16078431372549021" green="0.13725490196078433" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="12" name="ArialMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Geschäftsstelle Nord">
+                                        <attributes>
+                                            <color key="NSColor" red="0.98431372549019602" green="0.0" blue="0.027450980392156862" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="12" name="Arial-BoldMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+encad consulting GmbH Neumünsterische Straße 14 (Innenhof) D 20251 Hamburg
+Telefon 040 / 97 76 00-02 Telefax 040 / 97 76 00-04 </string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.16078431372549021" green="0.13725490196078433" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="12" name="ArialMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="info@encad-consulting.de">
+                                        <attributes>
+                                            <color key="NSColor" red="0.16078431372549021" green="0.13725490196078433" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="12" name="Arial-BoldMT"/>
+                                            <url key="NSLink" string="mailto:info@encad-consulting.de"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.16078431372549021" green="0.13725490196078433" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="12" name="ArialMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4l3-WT-fVf" firstAttribute="leading" secondItem="bsX-cG-ca6" secondAttribute="leading" id="7Oq-R6-Qgb"/>
+                            <constraint firstItem="4l3-WT-fVf" firstAttribute="bottom" secondItem="zw3-Si-lr2" secondAttribute="top" id="b3L-3i-Kft"/>
+                            <constraint firstAttribute="trailing" secondItem="4l3-WT-fVf" secondAttribute="trailing" id="dbC-xh-9pE"/>
+                            <constraint firstItem="4l3-WT-fVf" firstAttribute="top" secondItem="0GR-aw-ivp" secondAttribute="bottom" id="g52-Yl-MNx"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pIH-bM-PYJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1423" y="3325"/>
+            <point key="canvasLocation" x="1423" y="3483"/>
         </scene>
         <!--Webinar Table Controller-->
         <scene sceneID="UNL-Ro-Ywr">
@@ -2427,9 +2526,9 @@ Cg
     </scenes>
     <resources>
         <image name="GPS Receiving-32.png" width="32" height="32"/>
-        <image name="Layers-32.png" width="32" height="32"/>
         <image name="bicycle_32.png" width="32" height="32"/>
         <image name="car_32.png" width="32" height="32"/>
+        <image name="layers_top.png" width="32" height="32"/>
         <image name="maps-icon.png" width="72" height="72"/>
         <image name="walking_32.png" width="32" height="32"/>
     </resources>

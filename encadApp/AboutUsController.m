@@ -22,7 +22,7 @@
     self.navigationItem.title = @"Wir über uns";
     
     //set background
-    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"background_audition_bird.png"]];
+    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"background_aboutus.png"]];
     imageView.frame=CGRectMake(0.0, 0.0, self.view.frame.size.width, self.view.frame.size.height);
     
     [self.view insertSubview:imageView atIndex:0];

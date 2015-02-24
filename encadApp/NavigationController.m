@@ -29,11 +29,12 @@
 @property (weak, nonatomic) IBOutlet UIButton *gpsEnabled;
 @property (weak, nonatomic) IBOutlet UIButton *connectionSymbol;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *navigationStartButton;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *stopButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *mapTypeButton;
+@property (strong, nonatomic) UIBarButtonItem *routeButton;
 
 - (IBAction)pressedNavigationStart:(id)sender;
 - (IBAction)pressedLayerButton:(id)sender;
-- (IBAction)pressedStopButton:(id)sender;
+- (IBAction)changedNavigationType:(UISegmentedControl *)sender;
 
 
 @end
@@ -44,13 +45,13 @@
     [super viewDidLoad];
     
     //set title
-    
-    //set background
+    self.navigationItem.title=@"So finden Sie uns";
     
     //set Button for Segue
-    UIBarButtonItem *routeButton = [[UIBarButtonItem alloc]initWithTitle:@"Route" style:UIBarButtonItemStyleDone target:self action:@selector(openRouteView)];
+    _routeButton = [[UIBarButtonItem alloc]initWithTitle:@"Route" style:UIBarButtonItemStyleDone target:self action:@selector(openRouteView)];
+    _routeButton.enabled=NO;
     
-    self.navigationItem.rightBarButtonItem=routeButton;
+    self.navigationItem.rightBarButtonItem=_routeButton;
     
     //set coordinates
     _coordinate = CLLocationCoordinate2DMake(48.35731841028257, 10.891345739364624);
@@ -165,7 +166,7 @@
         //set controls
         _connectionSymbol.enabled=YES;
         _navigationStartButton.enabled=NO;
-        _stopButton.enabled=YES;
+        _routeButton.enabled=YES;
     }];
     
 }
@@ -227,13 +228,10 @@
     if(_routeOverlay) {
         [self.mapView removeOverlay:_routeOverlay];
     }
-    
     // Update the ivar
     _routeOverlay = route.polyline;
-    
     // Add it to the map
     [self.mapView addOverlay:_routeOverlay];
-    
 }
 
 
@@ -263,8 +261,37 @@
 }
 
 - (IBAction)pressedLayerButton:(id)sender {
+    if(_mapView.mapType==MKMapTypeStandard){
+        _mapView.mapType=MKMapTypeHybrid;
+        _mapTypeButton.image=[UIImage imageNamed:@"layers_mid.png"];
+    }
+    else if(_mapView.mapType==MKMapTypeHybrid){
+        _mapView.mapType=MKMapTypeSatellite;
+        _mapTypeButton.image=[UIImage imageNamed:@"layers_bot.png"];
+    }
+    else if(_mapView.mapType==MKMapTypeSatellite){
+        _mapView.mapType=MKMapTypeStandard;
+        _mapTypeButton.image=[UIImage imageNamed:@"layers_top.png"];
+    }
 }
 
-- (IBAction)pressedStopButton:(id)sender {
+- (IBAction)changedNavigationType:(UISegmentedControl *)sender {
+    switch (sender.selectedSegmentIndex) {
+        case 0:
+            _transportType = MKDirectionsTransportTypeAutomobile;
+            break;
+        case 1:
+            _transportType = MKDirectionsTransportTypeAny;
+            break;
+        case 2:
+            _transportType = MKDirectionsTransportTypeWalking;
+            break;
+            
+        default:
+            break;
+    }
+    _navigationStartButton.enabled=YES;
 }
+
+
 @end

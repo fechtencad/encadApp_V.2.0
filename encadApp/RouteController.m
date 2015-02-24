@@ -21,6 +21,7 @@
     [super viewDidLoad];
     
     //set properties
+    self.navigationItem.title=@"Routenführung";
     
     //set overview label
     [self setOverviewLabelText];

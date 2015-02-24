@@ -49,7 +49,7 @@
     _pictureNames = @[
                       @"audit_bird.png",
                       @"event_bird.png",
-                      @"",
+                      @"webinar_bird.png",
                       @"support_bird.png",
                       @"aboutus_bird.png",
                       @"gps_bird.png",

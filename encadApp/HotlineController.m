@@ -57,7 +57,7 @@
     self.navigationItem.title = @"Hotline";
     
     //set background
-    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"background_audition_bird.png"]];
+    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"background_support.png"]];
     imageView.frame=CGRectMake(0.0, 0.0, self.view.frame.size.width, self.view.frame.size.height);
     
     [self.view insertSubview:imageView atIndex:0];
@@ -99,7 +99,7 @@
     
     //set UISegmentedControll
     [_prioritySwitch addTarget:self action:@selector(changedPriority:) forControlEvents:UIControlEventValueChanged];
-    [_prioritySwitch setTintColor:[UIColor colorWithRed:0.000f green:0.506f blue:0.000f alpha:1.00f]];
+    [_prioritySwitch setTintColor:[UIColor colorWithRed:0.486f green:0.796f blue:0.416f alpha:1.00f]];
     
     //set flags
     _firstAddAssigned = NO;
@@ -112,7 +112,7 @@
     _messageTextView.layer.borderColor=[[UIColor lightGrayColor]CGColor];
     
     //set textcolor of title to priority
-    _titleTF.textColor= [UIColor colorWithRed:0.000f green:0.506f blue:0.000f alpha:1.00f];
+    _titleTF.textColor= [UIColor colorWithRed:0.486f green:0.796f blue:0.416f alpha:1.00f];
 }
 
 -(BOOL)insertsAreCorrect{
@@ -335,8 +335,8 @@
 -(void)changedPriority:(UISegmentedControl*)segmentControl{
     switch (segmentControl.selectedSegmentIndex) {
         case 0:
-            segmentControl.tintColor= [UIColor colorWithRed:0.000f green:0.506f blue:0.000f alpha:1.00f];
-            _titleTF.textColor=[UIColor colorWithRed:0.000f green:0.506f blue:0.000f alpha:1.00f];
+            segmentControl.tintColor= [UIColor colorWithRed:0.486f green:0.796f blue:0.416f alpha:1.00f];
+            _titleTF.textColor=[UIColor colorWithRed:0.486f green:0.796f blue:0.416f alpha:1.00f];
             break;
         case 1:
             segmentControl.tintColor= [UIColor orangeColor];

@@ -35,6 +35,12 @@
     //Set Title
     self.navigationItem.title=@"Veranstaltungen der encad consulting";
     
+    //set background
+    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"background_event_bird.png"]];
+    [imageView setContentMode:UIViewContentModeScaleAspectFill];
+    self.tableView.backgroundView = imageView;
+
+    
     //Configurate the data-Download
     _delegate = (AppDelegate*) [[UIApplication sharedApplication]delegate];
     self.theDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"anfangs_datum" ascending:YES];
@@ -48,8 +54,30 @@
     [self.refreshControl addTarget:self
                             action:@selector(reloadData)
                   forControlEvents:UIControlEventValueChanged];
+    
+    //check for empty table
+    [self checkforEmptyTable];
 
 }
+
+-(void)checkforEmptyTable{
+    id sectionInfo = [[_fetchedResultController sections] objectAtIndex:0];
+    if([sectionInfo numberOfObjects] == 0){
+        NSString *title = @"Das tut uns Leid!";
+        NSString *message = @"Zur Zeit sind keine Veranstaltungen geplant. Schauen Sie doch einfach später noch einmal vorbei, oder fragen Sie über das Hotline-Tool die encad consulting GmbH über die kommenen Themen an.";
+        if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_7_1) {
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+                [alert addAction:cancel];
+                [self presentViewController:alert animated:YES completion:nil];
+        }
+        else{
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+        }
+    }
+}
+
 
 -(void)initCoreDataFetch{
     NSFetchRequest *request = self.fetchRequest;
