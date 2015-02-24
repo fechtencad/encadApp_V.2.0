@@ -57,10 +57,13 @@
                       ];
     
     _segues=@[
-              @"auditionTaskSelector",
-              @"events",
-              @"webinars",
+              @"audition",
+              @"event",
+              @"webinar",
               @"hotline",
+              @"aboutUs",
+              @"navigation",
+              @"impressum"
               ];
 }
 
@@ -109,7 +112,7 @@
  */
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:_segues[indexPath.row]] animated:true];
+    [self performSegueWithIdentifier:_segues[indexPath.row] sender:self];
 }
 
 /*

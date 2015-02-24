@@ -34,7 +34,7 @@
     
     //Set Menue Items
     _segues = @[@"auditionDates",
-                @"auditionTable"];
+                @"auditionsTable"];
     
     _titles=@[@"Termine",
               @"Kurse"];
@@ -82,7 +82,7 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:_segues[indexPath.row]] animated:YES];
+    [self performSegueWithIdentifier:_segues[indexPath.row] sender:self];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
