@@ -75,7 +75,6 @@
     NSArray *segItemsArray = [NSArray arrayWithObjects: @"Augsburg", @"Hamburg", nil];
     _segmentedControl = [[UISegmentedControl alloc] initWithItems:segItemsArray];
     _segmentedControl.selectedSegmentIndex=0;
-    _segmentedControl.tintColor=[UIColor colorWithRed:0.867f green:0.643f blue:0.204f alpha:1.00f];
     [_segmentedControl addTarget:self
                          action:@selector(changedCity:)
                forControlEvents:UIControlEventValueChanged];

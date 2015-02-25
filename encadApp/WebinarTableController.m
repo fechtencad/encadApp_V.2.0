@@ -152,7 +152,7 @@
     cell.titleLabel.text=webinar.name;
     [cell setDateLabelText:webinar.datum];
     cell.startTimeLabel.text=[@"Startzeit: " stringByAppendingString: webinar.start_zeit];
-    cell.endTimeLabel.text=[@"Endzeit: " stringByAppendingString: webinar.end_zeit];
+    cell.endTimeLabel.text=[@"Endzeit:  " stringByAppendingString: webinar.end_zeit];
     
     return cell;
 }

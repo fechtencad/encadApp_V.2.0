@@ -48,6 +48,9 @@
 		3A42B90E1A9E07EC00A47E4D /* Menu-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A42B90D1A9E07EC00A47E4D /* Menu-32.png */; };
 		3A42B9101A9E086A00A47E4D /* Home-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A42B90F1A9E086A00A47E4D /* Home-32.png */; };
 		3A42B9121A9E0B2800A47E4D /* Sign Up-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A42B9111A9E0B2800A47E4D /* Sign Up-32.png */; };
+		3A42B9131A9E127A00A47E4D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A9B1CE81A9C6B4F003577C6 /* CoreLocation.framework */; };
+		3A42B9151A9E128600A47E4D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A42B9141A9E128600A47E4D /* CoreData.framework */; };
+		3A42B9171A9E129D00A47E4D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A42B9161A9E129D00A47E4D /* QuartzCore.framework */; };
 		3A4E0CCF1A97880A007A1776 /* UniversalWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4E0CCE1A97880A007A1776 /* UniversalWebViewController.m */; };
 		3A63B93F1A95FD3A00DEC141 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A63B93E1A95FD3A00DEC141 /* MapKit.framework */; };
 		3A77BBA51A9B635A00FC8CB6 /* AboutUsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A77BBA41A9B635A00FC8CB6 /* AboutUsController.m */; };
@@ -155,6 +158,8 @@
 		3A42B90D1A9E07EC00A47E4D /* Menu-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu-32.png"; sourceTree = "<group>"; };
 		3A42B90F1A9E086A00A47E4D /* Home-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Home-32.png"; sourceTree = "<group>"; };
 		3A42B9111A9E0B2800A47E4D /* Sign Up-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Sign Up-32.png"; sourceTree = "<group>"; };
+		3A42B9141A9E128600A47E4D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		3A42B9161A9E129D00A47E4D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3A4E0CCD1A97880A007A1776 /* UniversalWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UniversalWebViewController.h; sourceTree = "<group>"; };
 		3A4E0CCE1A97880A007A1776 /* UniversalWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UniversalWebViewController.m; sourceTree = "<group>"; };
 		3A63B93E1A95FD3A00DEC141 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -208,6 +213,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A42B9171A9E129D00A47E4D /* QuartzCore.framework in Frameworks */,
+				3A42B9151A9E128600A47E4D /* CoreData.framework in Frameworks */,
+				3A42B9131A9E127A00A47E4D /* CoreLocation.framework in Frameworks */,
 				3A63B93F1A95FD3A00DEC141 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,6 +233,8 @@
 		3A026E511A8B427300CD0DD4 = {
 			isa = PBXGroup;
 			children = (
+				3A42B9161A9E129D00A47E4D /* QuartzCore.framework */,
+				3A42B9141A9E128600A47E4D /* CoreData.framework */,
 				3A9B1CE81A9C6B4F003577C6 /* CoreLocation.framework */,
 				3A63B93E1A95FD3A00DEC141 /* MapKit.framework */,
 				3A026E5C1A8B427300CD0DD4 /* encadApp */,

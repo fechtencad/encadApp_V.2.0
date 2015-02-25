@@ -73,6 +73,7 @@
                      @"Fragen zu den Veranstaltungen",
                      @"Fragen zu den Webinaren",
                      @"Probleme mit der App",
+                     @"Verbesserungsvorschläge",
                      @"Lizenzprobleme",
                      @"Sonstiges"
                      ];
@@ -259,7 +260,7 @@
 
 -(void)showMaximumPicturesAlert{
     NSString *title = @"Maximum erreicht";
-    NSString *message = @"Sie können nur bis zu zwei Bilder hochladen.";
+    NSString *message = @"Sie können maximal zwei Bilder hochladen.";
     if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_7_1) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
@@ -431,7 +432,7 @@
     }
     else{
         NSString *title = @"Bitte Maske ausfüllen!";
-        NSString *message = @"Bitte wählen Sie eine Problembeschreibung aus und beschreiben Sie ihr Anliegen.";
+        NSString *message = @"Bitte wählen Sie eine Problembeschreibung aus und beschreiben Sie ihr Anliegen in der Texteingabemaske.";
         if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_7_1) {
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
