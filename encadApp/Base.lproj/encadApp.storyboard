@@ -212,6 +212,13 @@
                             <constraint firstItem="nvT-N0-1em" firstAttribute="top" secondItem="LSs-dm-qkP" secondAttribute="bottom" id="lN4-U8-ker"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="KVr-NA-75j">
+                        <barButtonItem key="rightBarButtonItem" image="Home-32.png" id="tAX-oU-wJY">
+                            <connections>
+                                <segue destination="1dz-FT-dv3" kind="showDetail" id="nQe-B3-Pcp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="auditionTableView" destination="LSs-dm-qkP" id="2By-ZG-BAd"/>
                         <outlet property="cityToolbar" destination="nvT-N0-1em" id="Ww3-JR-tW2"/>
@@ -262,8 +269,16 @@
                             <constraint firstAttribute="trailingMargin" secondItem="7Mr-ps-sC4" secondAttribute="trailing" constant="-16" id="qJf-fz-L5p"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="aSU-aX-skn">
+                        <barButtonItem key="rightBarButtonItem" image="Sign Up-32.png" id="Fl8-Iu-AvE">
+                            <connections>
+                                <action selector="pressedToolbarButton:" destination="1A0-EC-Gd7" id="9Td-WZ-hiy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="pdfWebView" destination="aH2-ul-llH" id="mvf-Rp-USo"/>
+                        <outlet property="signingButton" destination="Fl8-Iu-AvE" id="dIT-7r-kUF"/>
                         <outlet property="toolbarButton" destination="sFa-bG-twU" id="2W0-X1-ohc"/>
                     </connections>
                 </viewController>
@@ -271,7 +286,7 @@
             </objects>
             <point key="canvasLocation" x="2873" y="-1281"/>
         </scene>
-        <!--Audition Sign In Controller-->
+        <!--Audition Sign Up-->
         <scene sceneID="9aH-aL-wWB">
             <objects>
                 <viewController storyboardIdentifier="auditionSignIn" id="JT0-C2-NUy" customClass="AuditionSignInController" sceneMemberID="viewController">
@@ -521,6 +536,13 @@
                             <constraint firstItem="L0y-Ke-68b" firstAttribute="leading" secondItem="4km-fd-FaH" secondAttribute="leading" id="fwp-aT-HUz"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Audition Sign Up" id="PcV-7Z-EeN">
+                        <barButtonItem key="rightBarButtonItem" image="Home-32.png" id="jUv-vT-Itz">
+                            <connections>
+                                <segue destination="1dz-FT-dv3" kind="showDetail" id="onn-c1-kdR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="accViewToolbar" destination="LC0-90-O90" id="wX4-yj-rae"/>
                         <outlet property="auditionLabel" destination="Nmr-A2-L91" id="BHz-Ak-Prl"/>
@@ -635,6 +657,13 @@
                             <outlet property="delegate" destination="ejK-HV-OMY" id="GJX-E1-iOI"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="F4P-Sg-irN">
+                        <barButtonItem key="rightBarButtonItem" image="Home-32.png" id="qc7-dk-u6J">
+                            <connections>
+                                <segue destination="1dz-FT-dv3" kind="showDetail" id="8br-E6-TPu"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VMD-ay-N9h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1882,6 +1911,13 @@ Cg
                             <constraint firstItem="2uG-dw-Zxx" firstAttribute="leading" secondItem="PNW-NK-EU4" secondAttribute="leading" id="ywS-fs-ypI"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="G5d-jH-bZm">
+                        <barButtonItem key="rightBarButtonItem" image="Home-32.png" id="IR6-Wd-Gjc">
+                            <connections>
+                                <segue destination="1dz-FT-dv3" kind="showDetail" id="nqW-qI-s69"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="overviewLabel" destination="JgI-l1-bxa" id="OJp-Xw-mOi"/>
                         <outlet property="tableView" destination="2uG-dw-Zxx" id="ccX-YN-12U"/>
@@ -2322,6 +2358,13 @@ Cg
                             <constraint firstItem="dDk-pt-Qi6" firstAttribute="leading" secondItem="KPG-fa-iIr" secondAttribute="leading" id="hhc-jt-nmg"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="V2f-JP-TDp">
+                        <barButtonItem key="rightBarButtonItem" image="Home-32.png" id="fHr-er-n9z">
+                            <connections>
+                                <segue destination="1dz-FT-dv3" kind="showDetail" id="3PF-Ho-9ea"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="accViewToolbar" destination="vur-jn-dft" id="fV5-WK-6P0"/>
                         <outlet property="companyTF" destination="qeG-Cg-9wQ" id="zB0-Fx-bs0"/>
@@ -2427,6 +2470,13 @@ Cg
                             <constraint firstAttribute="centerY" secondItem="Ial-DV-3bL" secondAttribute="centerY" id="uc4-j2-0fn"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="jEb-rq-jW9">
+                        <barButtonItem key="rightBarButtonItem" image="Home-32.png" id="Qy0-FS-v7y">
+                            <connections>
+                                <segue destination="1dz-FT-dv3" kind="showDetail" id="3hC-NO-ZF0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="Ial-DV-3bL" id="VTm-3w-V32"/>
                         <outlet property="webView" destination="Tcx-r6-5Ge" id="8wN-0I-Ffg"/>
@@ -2528,10 +2578,15 @@ Cg
     </scenes>
     <resources>
         <image name="GPS Receiving-32.png" width="32" height="32"/>
+        <image name="Home-32.png" width="32" height="32"/>
+        <image name="Sign Up-32.png" width="32" height="32"/>
         <image name="bicycle_32.png" width="32" height="32"/>
         <image name="car_32.png" width="32" height="32"/>
         <image name="layers_top.png" width="32" height="32"/>
         <image name="maps-icon.png" width="72" height="72"/>
         <image name="walking_32.png" width="32" height="32"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="nQe-B3-Pcp"/>
+    </inferredMetricsTieBreakers>
 </document>

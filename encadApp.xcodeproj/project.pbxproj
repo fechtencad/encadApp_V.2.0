@@ -45,6 +45,9 @@
 		3A3729361A948B0E00BAE19E /* EventTaskSelectorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3729351A948B0E00BAE19E /* EventTaskSelectorTableViewCell.m */; };
 		3A42B90A1A9DBF0800A47E4D /* bird.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A42B9091A9DBF0800A47E4D /* bird.png */; };
 		3A42B90C1A9DC78200A47E4D /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A42B90B1A9DC78200A47E4D /* home.png */; };
+		3A42B90E1A9E07EC00A47E4D /* Menu-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A42B90D1A9E07EC00A47E4D /* Menu-32.png */; };
+		3A42B9101A9E086A00A47E4D /* Home-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A42B90F1A9E086A00A47E4D /* Home-32.png */; };
+		3A42B9121A9E0B2800A47E4D /* Sign Up-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A42B9111A9E0B2800A47E4D /* Sign Up-32.png */; };
 		3A4E0CCF1A97880A007A1776 /* UniversalWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4E0CCE1A97880A007A1776 /* UniversalWebViewController.m */; };
 		3A63B93F1A95FD3A00DEC141 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A63B93E1A95FD3A00DEC141 /* MapKit.framework */; };
 		3A77BBA51A9B635A00FC8CB6 /* AboutUsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A77BBA41A9B635A00FC8CB6 /* AboutUsController.m */; };
@@ -149,6 +152,9 @@
 		3A3729351A948B0E00BAE19E /* EventTaskSelectorTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventTaskSelectorTableViewCell.m; sourceTree = "<group>"; };
 		3A42B9091A9DBF0800A47E4D /* bird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bird.png; sourceTree = "<group>"; };
 		3A42B90B1A9DC78200A47E4D /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
+		3A42B90D1A9E07EC00A47E4D /* Menu-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu-32.png"; sourceTree = "<group>"; };
+		3A42B90F1A9E086A00A47E4D /* Home-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Home-32.png"; sourceTree = "<group>"; };
+		3A42B9111A9E0B2800A47E4D /* Sign Up-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Sign Up-32.png"; sourceTree = "<group>"; };
 		3A4E0CCD1A97880A007A1776 /* UniversalWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UniversalWebViewController.h; sourceTree = "<group>"; };
 		3A4E0CCE1A97880A007A1776 /* UniversalWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UniversalWebViewController.m; sourceTree = "<group>"; };
 		3A63B93E1A95FD3A00DEC141 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -330,6 +336,9 @@
 		3A026E9C1A8B586800CD0DD4 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				3A42B9111A9E0B2800A47E4D /* Sign Up-32.png */,
+				3A42B90F1A9E086A00A47E4D /* Home-32.png */,
+				3A42B90D1A9E07EC00A47E4D /* Menu-32.png */,
 				3A42B90B1A9DC78200A47E4D /* home.png */,
 				3A42B9091A9DBF0800A47E4D /* bird.png */,
 				3A9B1D161A9CC87F003577C6 /* background_webinar.png */,
@@ -569,14 +578,17 @@
 				3A2E22581A8CE69300E1AB2A /* engineering.png in Resources */,
 				3A026EAF1A8B8EE300CD0DD4 /* event_bird.png in Resources */,
 				3A2E225A1A8CE72D00E1AB2A /* engine.png in Resources */,
+				3A42B9121A9E0B2800A47E4D /* Sign Up-32.png in Resources */,
 				3ABC6A8A1A9B820A00EA9EE7 /* walking_32.png in Resources */,
 				3A2E22501A8CDEDA00E1AB2A /* background_blue.png in Resources */,
 				3A2E22641A8CF1E400E1AB2A /* model_bike.png in Resources */,
 				3A2E22521A8CE42200E1AB2A /* background_blue_grid.png in Resources */,
 				3A9B1D071A9CA59C003577C6 /* layers_mid.png in Resources */,
+				3A42B9101A9E086A00A47E4D /* Home-32.png in Resources */,
 				3A026EB91A8B979400CD0DD4 /* gps_bird.png in Resources */,
 				3A9B1D191A9CC87F003577C6 /* webinar_bird.png in Resources */,
 				3A42B90A1A9DBF0800A47E4D /* bird.png in Resources */,
+				3A42B90E1A9E07EC00A47E4D /* Menu-32.png in Resources */,
 				3A9B1D121A9CBEEC003577C6 /* background_aboutus.png in Resources */,
 				3A7E45EA1A938869001D9C39 /* datasheet_bird.png in Resources */,
 				3A2E225F1A8CEFDC00E1AB2A /* background_blue_alpha.png in Resources */,

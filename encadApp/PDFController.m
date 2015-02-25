@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSString *serverPath;
 @property (nonatomic, strong) NSString *pdfURLString;
 @property (nonatomic, strong) NSString *datasheetName;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *signingButton;
 
 - (IBAction)pressedToolbarButton:(id)sender;
 
@@ -52,6 +53,9 @@
     
     //init button
     [self initButton];
+    if(_audition){
+        self.navigationItem.rightBarButtonItem=nil;
+    }
 }
 
 -(void)initWebView{

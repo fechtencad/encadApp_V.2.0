@@ -34,8 +34,8 @@
                      @"Veranstaltungen",
                      @"Webinare",
                      @"Hotline",
-                     @"Wir über uns",
                      @"Anfahrt",
+                     @"Wir über uns",
                      @"Impressum"
                      ];
     _labelDescriptions=@[
@@ -43,8 +43,8 @@
                          @"Sehen Sie hier, welche neuen Veranstaltungen es von der encad consulting gibt und melden Sie sich gleich an!",
                          @"Schauen Sie sich hier unsere interessanten Webinare direkt in der App an.",
                          @"Sie haben ein Problem oder eine Frage? Schreiben Sie uns über dieses Tool eine Mail mit Ihrem Anliegen.",
-                         @"Erfahren Sie, wer die encad consulting ist, und was sie macht.",
                          @"Sie wollen uns vor Ort besuchen, kennen aber den Weg nicht? Kein Problem...",
+                         @"Erfahren Sie, wer die encad consulting ist, und was sie macht.",
                          @"Anschrift und Kontaktdaten unserer Geschäftstelle."
                          ];
     _pictureNames = @[
@@ -52,8 +52,8 @@
                       @"event_bird.png",
                       @"webinar_bird.png",
                       @"support_bird.png",
-                      @"aboutus_bird.png",
                       @"gps_bird.png",
+                      @"aboutus_bird.png",
                       @"impressum_bird.png"
                       ];
     
@@ -62,8 +62,8 @@
               @"event",
               @"webinar",
               @"hotline",
-              @"aboutUs",
               @"navigation",
+              @"aboutUs",
               @"impressum"
               ];
 }
