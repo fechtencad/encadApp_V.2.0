@@ -318,11 +318,11 @@
 		3A026E871A8B47C200CD0DD4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3A026EA31A8B666700CD0DD4 /* HomeScreenTableViewCell.h */,
+				3A026EA41A8B666700CD0DD4 /* HomeScreenTableViewCell.m */,
 				3A9B1CF81A9C78F5003577C6 /* NavigationViews */,
 				3A3729331A948AF100BAE19E /* EventViews */,
 				3A7E45E61A938645001D9C39 /* AuditionViews */,
-				3A026EA31A8B666700CD0DD4 /* HomeScreenTableViewCell.h */,
-				3A026EA41A8B666700CD0DD4 /* HomeScreenTableViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
