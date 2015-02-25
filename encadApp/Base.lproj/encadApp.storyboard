@@ -119,7 +119,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="bis Wed, 09.03.2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6AI-n4-pyX">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="bis:  Wed, 09.03.2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6AI-n4-pyX">
                                                     <rect key="frame" x="8" y="104" width="177" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="5Jq-tN-CZV"/>
@@ -416,7 +416,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ich interressiere mich für folgende Schulung:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Juq-NT-uni">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ich interessiere mich für folgende Schulung:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Juq-NT-uni">
                                         <rect key="frame" x="16" y="8" width="568" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="60H-gT-Ogn"/>
@@ -978,6 +978,7 @@
                         <outlet property="messageTextView" destination="yFr-xV-BMo" id="pxJ-QD-bKR"/>
                         <outlet property="prioritySwitch" destination="8Mu-uq-9KJ" id="ibZ-dS-J6e"/>
                         <outlet property="scrollView" destination="qoQ-Ag-LRz" id="HvS-LG-Abg"/>
+                        <outlet property="signUpButton" destination="bRg-o3-fOV" id="VAU-cV-szt"/>
                         <outlet property="titleTF" destination="clo-hB-5Gb" id="Mew-Sf-mVP"/>
                     </connections>
                 </viewController>
@@ -1777,17 +1778,17 @@ Cg
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8hx-5T-o7d" id="WCF-a7-vUJ">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tht-i3-NLO">
-                                                    <rect key="frame" x="8" y="29" width="76" height="55"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Tht-i3-NLO">
+                                                    <rect key="frame" x="8" y="29" width="51" height="55"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="51" id="wOg-Ui-zxg"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="46"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DeX-ot-FGi">
-                                                    <rect key="frame" x="92" y="8" width="372" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="dlv-E4-TNq"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="8" y="8" width="456" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -1795,30 +1796,30 @@ Cg
                                                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Ukn-sc-e3s">
                                                     <rect key="frame" x="472" y="0.0" width="128" height="113"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="128" id="4h3-im-gJM"/>
+                                                        <constraint firstAttribute="width" constant="128" id="0Ka-TH-Mdx"/>
                                                     </constraints>
                                                 </mapView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="Hyu-W9-kEp">
-                                                    <rect key="frame" x="92" y="37" width="372" height="76"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="67" y="37" width="397" height="76"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="DeX-ot-FGi" firstAttribute="leading" secondItem="Hyu-W9-kEp" secondAttribute="leading" id="74b-8A-5OT"/>
-                                                <constraint firstItem="Ukn-sc-e3s" firstAttribute="centerY" secondItem="WCF-a7-vUJ" secondAttribute="centerY" id="8Zj-Pg-vrX"/>
-                                                <constraint firstItem="DeX-ot-FGi" firstAttribute="top" secondItem="WCF-a7-vUJ" secondAttribute="topMargin" id="HdV-7r-91a"/>
-                                                <constraint firstItem="Hyu-W9-kEp" firstAttribute="bottom" secondItem="Ukn-sc-e3s" secondAttribute="bottom" id="I2R-1S-OUN"/>
-                                                <constraint firstItem="Tht-i3-NLO" firstAttribute="leading" secondItem="WCF-a7-vUJ" secondAttribute="leadingMargin" id="Kcm-9Z-Yp6"/>
-                                                <constraint firstAttribute="trailing" secondItem="Ukn-sc-e3s" secondAttribute="trailing" id="Ttf-Oz-Jhp"/>
-                                                <constraint firstItem="Hyu-W9-kEp" firstAttribute="top" secondItem="DeX-ot-FGi" secondAttribute="bottom" constant="8" symbolic="YES" id="ZEc-3n-BdH"/>
-                                                <constraint firstItem="Hyu-W9-kEp" firstAttribute="leading" secondItem="Tht-i3-NLO" secondAttribute="trailing" constant="8" symbolic="YES" id="abb-YD-o2K"/>
-                                                <constraint firstItem="Tht-i3-NLO" firstAttribute="centerY" secondItem="Ukn-sc-e3s" secondAttribute="centerY" id="aoY-w2-cdj"/>
-                                                <constraint firstItem="Ukn-sc-e3s" firstAttribute="top" secondItem="WCF-a7-vUJ" secondAttribute="top" id="arF-Jf-IEQ"/>
-                                                <constraint firstItem="Ukn-sc-e3s" firstAttribute="leading" secondItem="Hyu-W9-kEp" secondAttribute="trailing" constant="8" symbolic="YES" id="jzG-WR-D5j"/>
-                                                <constraint firstItem="DeX-ot-FGi" firstAttribute="leading" secondItem="WCF-a7-vUJ" secondAttribute="leadingMargin" constant="84" id="pBI-ID-hOn"/>
-                                                <constraint firstItem="Ukn-sc-e3s" firstAttribute="leading" secondItem="DeX-ot-FGi" secondAttribute="trailing" constant="8" symbolic="YES" id="pK9-4G-dNO"/>
+                                                <constraint firstItem="Ukn-sc-e3s" firstAttribute="leading" secondItem="Hyu-W9-kEp" secondAttribute="trailing" constant="8" symbolic="YES" id="1wp-sI-U2E"/>
+                                                <constraint firstItem="Tht-i3-NLO" firstAttribute="top" secondItem="DeX-ot-FGi" secondAttribute="bottom" id="7js-wV-4or"/>
+                                                <constraint firstItem="Hyu-W9-kEp" firstAttribute="leading" secondItem="Tht-i3-NLO" secondAttribute="trailing" constant="8" symbolic="YES" id="Anw-9U-Vhk"/>
+                                                <constraint firstItem="Ukn-sc-e3s" firstAttribute="top" secondItem="WCF-a7-vUJ" secondAttribute="top" id="Go7-rE-koK"/>
+                                                <constraint firstItem="Tht-i3-NLO" firstAttribute="centerY" secondItem="Ukn-sc-e3s" secondAttribute="centerY" id="UKU-s9-7MU"/>
+                                                <constraint firstItem="Hyu-W9-kEp" firstAttribute="bottom" secondItem="Ukn-sc-e3s" secondAttribute="bottom" id="VUf-mJ-U4r"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ukn-sc-e3s" secondAttribute="trailing" id="Y2e-bl-M8W"/>
+                                                <constraint firstItem="DeX-ot-FGi" firstAttribute="top" secondItem="WCF-a7-vUJ" secondAttribute="topMargin" id="ejP-Xm-s1l"/>
+                                                <constraint firstItem="Hyu-W9-kEp" firstAttribute="top" secondItem="DeX-ot-FGi" secondAttribute="bottom" constant="8" symbolic="YES" id="gY6-gN-IJ9"/>
+                                                <constraint firstItem="Ukn-sc-e3s" firstAttribute="centerY" secondItem="WCF-a7-vUJ" secondAttribute="centerY" id="gwF-kb-nW9"/>
+                                                <constraint firstItem="DeX-ot-FGi" firstAttribute="leading" secondItem="WCF-a7-vUJ" secondAttribute="leadingMargin" id="naP-G4-oPL"/>
+                                                <constraint firstItem="Ukn-sc-e3s" firstAttribute="leading" secondItem="DeX-ot-FGi" secondAttribute="trailing" constant="8" symbolic="YES" id="r1G-Vp-Qrj"/>
+                                                <constraint firstItem="DeX-ot-FGi" firstAttribute="leading" secondItem="Tht-i3-NLO" secondAttribute="leading" id="sHy-cH-Hll"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1888,7 +1889,7 @@ Cg
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CcK-hp-oGp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2326" y="2746"/>
+            <point key="canvasLocation" x="2288" y="2746"/>
         </scene>
         <!--Impressum Controller-->
         <scene sceneID="ggz-ij-Ajw">
@@ -1912,7 +1913,7 @@ Cg
                                         <attributes>
                                             <color key="NSColor" red="0.98431372549019602" green="0.0" blue="0.027450980392156862" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="12" name="Arial-BoldMT"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
                                                 <tabStops/>
                                             </paragraphStyle>
                                         </attributes>
@@ -1923,7 +1924,7 @@ Telefon 0821 / 90 670-100 Telefax 0821 / 90 670-200 </string>
                                         <attributes>
                                             <color key="NSColor" red="0.16078431372549021" green="0.13725490196078433" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="12" name="ArialMT"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
                                                 <tabStops/>
                                             </paragraphStyle>
                                         </attributes>
@@ -1933,7 +1934,7 @@ Telefon 0821 / 90 670-100 Telefax 0821 / 90 670-200 </string>
                                             <color key="NSColor" red="0.16078431372549021" green="0.13725490196078433" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="12" name="Arial-BoldMT"/>
                                             <url key="NSLink" string="mailto:info@encad-consulting.de"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
                                                 <tabStops/>
                                             </paragraphStyle>
                                         </attributes>
@@ -1945,7 +1946,7 @@ Cgo
                                         <attributes>
                                             <color key="NSColor" red="0.16078431372549021" green="0.13725490196078433" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="12" name="ArialMT"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
                                                 <tabStops/>
                                             </paragraphStyle>
                                         </attributes>
@@ -1954,7 +1955,7 @@ Cgo
                                         <attributes>
                                             <color key="NSColor" red="0.98431372549019602" green="0.0" blue="0.027450980392156862" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="12" name="Arial-BoldMT"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
                                                 <tabStops/>
                                             </paragraphStyle>
                                         </attributes>
@@ -1966,7 +1967,7 @@ Telefon 040 / 97 76 00-02 Telefax 040 / 97 76 00-04 </string>
                                         <attributes>
                                             <color key="NSColor" red="0.16078431372549021" green="0.13725490196078433" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="12" name="ArialMT"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
                                                 <tabStops/>
                                             </paragraphStyle>
                                         </attributes>
@@ -1976,7 +1977,7 @@ Telefon 040 / 97 76 00-02 Telefax 040 / 97 76 00-04 </string>
                                             <color key="NSColor" red="0.16078431372549021" green="0.13725490196078433" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="12" name="Arial-BoldMT"/>
                                             <url key="NSLink" string="mailto:info@encad-consulting.de"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
                                                 <tabStops/>
                                             </paragraphStyle>
                                         </attributes>
@@ -1988,13 +1989,14 @@ Cg
                                         <attributes>
                                             <color key="NSColor" red="0.16078431372549021" green="0.13725490196078433" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="12" name="ArialMT"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" defaultTabInterval="36">
                                                 <tabStops/>
                                             </paragraphStyle>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2090,7 +2092,7 @@ Cg
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="htt-C9-mA8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1423" y="470"/>
+            <point key="canvasLocation" x="1439" y="477"/>
         </scene>
         <!--Event Sign In Controller-->
         <scene sceneID="N7N-bp-2PH">
@@ -2434,7 +2436,7 @@ Cg
             </objects>
             <point key="canvasLocation" x="2201" y="470"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Home Screen Table-->
         <scene sceneID="eGr-L3-LOe">
             <objects>
                 <tableViewController id="zDx-eg-v2o" customClass="HomeScreenTable" sceneMemberID="viewController">
@@ -2492,7 +2494,7 @@ Cg
                             <outlet property="delegate" destination="zDx-eg-v2o" id="2lX-DE-MXN"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="Feu-hz-6Nn"/>
+                    <navigationItem key="navigationItem" id="Feu-hz-6Nn"/>
                     <connections>
                         <segue destination="Pub-vo-yRu" kind="show" identifier="aboutUs" id="O3R-WH-Vob"/>
                         <segue destination="LMW-lD-UN1" kind="show" identifier="hotline" id="aIj-Xa-XhJ"/>

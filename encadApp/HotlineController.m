@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *deleteAdd2Button;
 @property (weak, nonatomic) IBOutlet UILabel *additionLabel;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *signUpButton;
 
 @property (nonatomic, strong) UIPickerView *titlePicker;
 @property (nonatomic, strong) NSArray *pickerItems;
@@ -67,8 +68,11 @@
     [_scrollView setContentSize:CGSizeMake(screensize.size.width, 600.0)];
     
     //set picker items
-    _pickerItems = @[@"Probleme mit der App",
-                     @"Probleme bei der Anmeldung",
+    _pickerItems = @[@"Probleme bei der Anmeldung",
+                     @"Fragen zu den Schulungen",
+                     @"Fragen zu den Veranstaltungen",
+                     @"Fragen zu den Webinaren",
+                     @"Probleme mit der App",
                      @"Lizenzprobleme"
                      ];
     
@@ -423,6 +427,20 @@
 - (IBAction)sendRequest:(id)sender {
     if([self insertsAreCorrect]){
         [self sendMail];
+    }
+    else{
+        NSString *title = @"Bitte Maske ausfüllen!";
+        NSString *message = @"Bitte wählen Sie eine Problembeschreibung aus und beschreiben Sie ihr Anliegen.";
+        if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_7_1) {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+            [alert addAction:cancel];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+        else{
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
     }
 }
 

@@ -33,7 +33,7 @@
 }
 
 -(void)setEndDateLabelText:(NSString*)date withDuration:(int)duration{
-    self.endDateLabel.text = [NSString stringWithFormat:@"bis: %@",[self convertDateString:date WithDaysToAdd:duration]];
+    self.endDateLabel.text = [NSString stringWithFormat:@"bis:  %@",[self convertDateString:date WithDaysToAdd:duration]];
 }
 
 -(NSString*)convertDateString:(NSString*)dateString WithDaysToAdd:(long)days{

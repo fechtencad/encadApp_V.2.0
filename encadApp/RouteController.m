@@ -82,6 +82,17 @@
     return _route.steps.count;
 }
 
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    //setup
+    CGRect originalRect = cell.frame;
+    cell.frame=CGRectMake(-cell.frame.size.width, cell.frame.origin.y, cell.frame.size.width, cell.frame.size.height);
+    //animate
+    [UIView transitionWithView:cell duration:0.8 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        cell.frame=originalRect;
+    } completion:nil];
+}
+
+
 
 /*
 #pragma mark - Navigation

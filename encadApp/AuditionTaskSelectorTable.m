@@ -89,6 +89,17 @@
     return 88.0;
 }
 
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    //setup
+    CGRect originalRect = cell.frame;
+    cell.frame=CGRectMake(-cell.frame.size.width, cell.frame.origin.y, cell.frame.size.width, cell.frame.size.height);
+    //animate
+    [UIView transitionWithView:cell duration:0.8 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        cell.frame=originalRect;
+    } completion:nil];
+}
+
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

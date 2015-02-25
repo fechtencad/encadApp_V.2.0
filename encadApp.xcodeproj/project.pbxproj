@@ -43,6 +43,8 @@
 		3A30DF2E1A977150000852CC /* WebinarTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A30DF2D1A977150000852CC /* WebinarTableController.m */; };
 		3A30DF311A97716C000852CC /* WebinarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A30DF301A97716C000852CC /* WebinarTableViewCell.m */; };
 		3A3729361A948B0E00BAE19E /* EventTaskSelectorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3729351A948B0E00BAE19E /* EventTaskSelectorTableViewCell.m */; };
+		3A42B90A1A9DBF0800A47E4D /* bird.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A42B9091A9DBF0800A47E4D /* bird.png */; };
+		3A42B90C1A9DC78200A47E4D /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A42B90B1A9DC78200A47E4D /* home.png */; };
 		3A4E0CCF1A97880A007A1776 /* UniversalWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4E0CCE1A97880A007A1776 /* UniversalWebViewController.m */; };
 		3A63B93F1A95FD3A00DEC141 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A63B93E1A95FD3A00DEC141 /* MapKit.framework */; };
 		3A77BBA51A9B635A00FC8CB6 /* AboutUsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A77BBA41A9B635A00FC8CB6 /* AboutUsController.m */; };
@@ -145,6 +147,8 @@
 		3A30DF301A97716C000852CC /* WebinarTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebinarTableViewCell.m; sourceTree = "<group>"; };
 		3A3729341A948B0E00BAE19E /* EventTaskSelectorTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTaskSelectorTableViewCell.h; sourceTree = "<group>"; };
 		3A3729351A948B0E00BAE19E /* EventTaskSelectorTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventTaskSelectorTableViewCell.m; sourceTree = "<group>"; };
+		3A42B9091A9DBF0800A47E4D /* bird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bird.png; sourceTree = "<group>"; };
+		3A42B90B1A9DC78200A47E4D /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 		3A4E0CCD1A97880A007A1776 /* UniversalWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UniversalWebViewController.h; sourceTree = "<group>"; };
 		3A4E0CCE1A97880A007A1776 /* UniversalWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UniversalWebViewController.m; sourceTree = "<group>"; };
 		3A63B93E1A95FD3A00DEC141 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -239,8 +243,6 @@
 				3A026E8E1A8B488E00CD0DD4 /* CoreData */,
 				3A026E871A8B47C200CD0DD4 /* Views */,
 				3A026E861A8B428F00CD0DD4 /* Controllers */,
-				3A026E611A8B427300CD0DD4 /* AppDelegate.h */,
-				3A026E621A8B427300CD0DD4 /* AppDelegate.m */,
 				3A026E6D1A8B427300CD0DD4 /* Images.xcassets */,
 				3A9B1CF21A9C7464003577C6 /* encadApp.storyboard */,
 				3A026E6F1A8B427300CD0DD4 /* LaunchScreen.xib */,
@@ -279,6 +281,8 @@
 		3A026E861A8B428F00CD0DD4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3A026E611A8B427300CD0DD4 /* AppDelegate.h */,
+				3A026E621A8B427300CD0DD4 /* AppDelegate.m */,
 				3A4E0CCD1A97880A007A1776 /* UniversalWebViewController.h */,
 				3A4E0CCE1A97880A007A1776 /* UniversalWebViewController.m */,
 				3A026E991A8B4D5C00CD0DD4 /* HomeScreenTable.h */,
@@ -326,6 +330,8 @@
 		3A026E9C1A8B586800CD0DD4 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				3A42B90B1A9DC78200A47E4D /* home.png */,
+				3A42B9091A9DBF0800A47E4D /* bird.png */,
 				3A9B1D161A9CC87F003577C6 /* background_webinar.png */,
 				3A9B1D171A9CC87F003577C6 /* webinar_bird.png */,
 				3A9B1D0E1A9CBEEC003577C6 /* background_aboutus.png */,
@@ -570,6 +576,7 @@
 				3A9B1D071A9CA59C003577C6 /* layers_mid.png in Resources */,
 				3A026EB91A8B979400CD0DD4 /* gps_bird.png in Resources */,
 				3A9B1D191A9CC87F003577C6 /* webinar_bird.png in Resources */,
+				3A42B90A1A9DBF0800A47E4D /* bird.png in Resources */,
 				3A9B1D121A9CBEEC003577C6 /* background_aboutus.png in Resources */,
 				3A7E45EA1A938869001D9C39 /* datasheet_bird.png in Resources */,
 				3A2E225F1A8CEFDC00E1AB2A /* background_blue_alpha.png in Resources */,
@@ -580,6 +587,7 @@
 				3A2E225C1A8CEBA100E1AB2A /* catia_screen.png in Resources */,
 				3A7E45E91A938869001D9C39 /* catia_screen_bird.png in Resources */,
 				3A026EB11A8B92CF00CD0DD4 /* support_bird.png in Resources */,
+				3A42B90C1A9DC78200A47E4D /* home.png in Resources */,
 				3A2E22601A8CEFDC00E1AB2A /* background_blue_stripes.png in Resources */,
 				3A026EAD1A8B836200CD0DD4 /* audit_bird.png in Resources */,
 				3A9B1CFD1A9C7D78003577C6 /* maps-icon.png in Resources */,

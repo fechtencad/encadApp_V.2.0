@@ -21,7 +21,7 @@
     self.navigationItem.title=@"Impressum";
    
     //set background
-    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"background_aboutus.png"]];
+    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"background_impressum.png"]];
     imageView.frame=CGRectMake(0.0, 0.0, self.view.frame.size.width, self.view.frame.size.height);
     
     [self.view insertSubview:imageView atIndex:0];

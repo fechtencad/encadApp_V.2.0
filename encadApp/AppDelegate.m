@@ -31,6 +31,9 @@
     
     _jsonExchangeServerPath = [[defaults stringForKey:@"serverPath"] stringByAppendingString:@"JsonExchange/"];
 
+    //Turn of WebKitDiscImageCache
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"WebKitDiskImageCacheEnabled"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
     [self runScriptOperations];
     

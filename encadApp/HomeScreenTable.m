@@ -8,6 +8,7 @@
 
 #import "HomeScreenTable.h"
 #import "HomeScreenTableViewCell.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface HomeScreenTable ()
 
@@ -24,7 +25,7 @@
     [super viewDidLoad];
     
     //set Title
-    self.navigationItem.title=@"Home";
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"home.png"]];
     
     
     //Set Menue Items
@@ -40,7 +41,7 @@
     _labelDescriptions=@[
                          @"Hier können Sie die Schulungen der encad consulting einsehen und bei Interresse eine Anfrage zur Teilnahme versenden.",
                          @"Sehen Sie hier, welche neuen Veranstaltungen es von der encad consulting gibt und melden Sie sich gleich an!",
-                         @"Schauen Sie sich hier unsere interessanten Webinare mit verschiedenen Themen direkt in der App an",
+                         @"Schauen Sie sich hier unsere interessanten Webinare direkt in der App an.",
                          @"Sie haben ein Problem oder eine Frage? Schreiben Sie uns über dieses Tool eine Mail mit Ihrem Anliegen.",
                          @"Erfahren Sie, wer die encad consulting ist, und was sie macht.",
                          @"Sie wollen uns vor Ort besuchen, kennen aber den Weg nicht? Kein Problem...",
@@ -72,7 +73,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -97,19 +97,33 @@
 //    if(_labelTexts.count!=_pictureNames.count){
 //        @throw([NSException exceptionWithName:@"InvalidCellContentException" reason:@"The content for the cell doesn't match." userInfo:nil]);
 //    }
-    [cell.theImageView setImage:[UIImage imageNamed:_pictureNames[row]]];
     [cell.titleLabel setText:_labelTitles[row]];
     [cell.descriptionLabel setText:_labelDescriptions[row]];
+    [cell.theImageView setImage:[UIImage imageNamed:_pictureNames[indexPath.row]]];
     
     return cell;
 }
 
 
-/*
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    //setup
+    CGRect originalRect = cell.frame;
+    cell.frame=CGRectMake(-cell.frame.size.width, cell.frame.origin.y, cell.frame.size.width, cell.frame.size.height);
     
+    HomeScreenTableViewCell *hscell = (HomeScreenTableViewCell*) cell;
+    UIImage *storedImage = hscell.theImageView.image;
+    hscell.theImageView.image=[UIImage imageNamed:@"bird.png"];
+    //animate
+    [UIView animateWithDuration:0.8 delay:indexPath.row/8.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+           cell.frame=originalRect;
+    } completion:^(BOOL finished) {
+        [UIView transitionWithView:hscell.theImageView duration:0.5 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
+            hscell.theImageView.image = storedImage;
+        } completion:nil];
+
+    }];
 }
- */
+
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self performSegueWithIdentifier:_segues[indexPath.row] sender:self];
