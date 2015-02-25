@@ -73,7 +73,8 @@
                      @"Fragen zu den Veranstaltungen",
                      @"Fragen zu den Webinaren",
                      @"Probleme mit der App",
-                     @"Lizenzprobleme"
+                     @"Lizenzprobleme",
+                     @"Sonstiges"
                      ];
     
     //configure data picker

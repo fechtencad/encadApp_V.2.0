@@ -131,9 +131,35 @@
     [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     if(!error){
         NSLog(@"Request sent: %@",request);
+        NSString *title = @"Anfrage erfolgreich gesendet";
+        NSString *message = @"Ihre Anfrage wurde erfolgreich der encad consulting GmbH zugestellt. Sie erhalten demnächst eine Email mit der Bestätigung unter der angegebenen Email-Addresse. Vielen Dank!";
+        if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_7_1) {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+            [alert addAction:cancel];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+        else{
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+
     }
     else{
         NSLog(@"Error at sending data: %@",error);
+        NSString *title = @"Fehler beim Senden der Daten";
+        NSString *message = @"Es ist ein Fehler beim Senden der Daten aufgetreten. Vergewissern Sie sich, dass sie mit dem Internet verbunden sind. Falls das Problem weiterhin besteht, senden Sie uns bitte eine Nachricht über das Hotline-Tool. Vielen Dank!";
+        if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_7_1) {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+            [alert addAction:cancel];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+        else{
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+
     }
 }
 
