@@ -30,7 +30,7 @@
     
     //Activity Indicator settings
     self.activityIndicator.hidesWhenStopped=YES;
-    self.activityIndicator.color = [UIColor purpleColor];
+    self.activityIndicator.color = [UIColor blueColor];
     [self.activityIndicator startAnimating];
     
     [NSTimer scheduledTimerWithTimeInterval:0.5
