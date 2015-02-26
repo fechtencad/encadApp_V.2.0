@@ -134,7 +134,7 @@
     [mc setMailComposeDelegate:self];
     
     NSString *emailTitle = [[_titleTF.text stringByAppendingString:@" "]stringByAppendingString:[self getPriority]];
-    NSString *messageBody = _messageTextView.text;
+    NSString *messageBody = [NSString stringWithFormat:@"%@\r\n\r\n%@",_messageTextView.text,@"Gesendet von der encadApp. Copyright © encad consulting GmbH."];
     NSArray *toRecipents = [NSArray arrayWithObjects:_emailAdress, nil];
     [mc setSubject:emailTitle];
     [mc setMessageBody:messageBody isHTML:NO];
