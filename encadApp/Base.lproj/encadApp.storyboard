@@ -677,6 +677,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="eventCell" rowHeight="156" id="brG-t3-NaI" customClass="EventTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -754,6 +755,7 @@
                                         <constraint firstItem="tIV-4O-ieh" firstAttribute="leading" secondItem="art-P9-KHA" secondAttribute="leading" id="xMf-2E-lNg"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="agendaWebView" destination="CBn-5p-peh" id="saF-nC-gSP"/>
                                     <outlet property="endDateLabel" destination="FjX-fV-J1k" id="9cF-SX-Chu"/>
@@ -2056,6 +2058,7 @@ Cg
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="webinarCell" rowHeight="124" id="Jfa-KC-WeH" customClass="WebinarTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -2112,6 +2115,7 @@ Cg
                                         <constraint firstAttribute="bottomMargin" secondItem="Vse-bM-L75" secondAttribute="bottom" constant="-3.5" id="rS6-tF-pHG"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dateLabel" destination="NkR-vb-lPJ" id="EuK-Vm-bne"/>
                                     <outlet property="endTimeLabel" destination="Vse-bM-L75" id="YzU-gz-ant"/>
