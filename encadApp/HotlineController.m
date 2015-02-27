@@ -75,6 +75,7 @@
                      @"Probleme mit der App",
                      @"Verbesserungsvorschläge",
                      @"Lizenzprobleme",
+                     @"technische Probleme",
                      @"Sonstiges"
                      ];
     
