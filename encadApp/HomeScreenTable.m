@@ -41,7 +41,7 @@
     _labelDescriptions=@[
                          @"Hier können Sie die Schulungen der encad consulting einsehen und bei Interresse eine Anfrage zur Teilnahme versenden.",
                          @"Sehen Sie hier, welche neuen Veranstaltungen es von der encad consulting gibt und melden Sie sich gleich an!",
-                         @"Schauen Sie sich hier unsere interessanten Webinare direkt in der App an.",
+                         @"Melden Sie sich hier für unsere interessanten Webinare an.",
                          @"Sie haben ein Problem oder eine Frage? Schreiben Sie uns über dieses Tool eine Mail mit Ihrem Anliegen.",
                          @"Sie wollen uns vor Ort besuchen, kennen aber den Weg nicht? Kein Problem...",
                          @"Erfahren Sie, wer die encad consulting ist, und was sie macht.",
