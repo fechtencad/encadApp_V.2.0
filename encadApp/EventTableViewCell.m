@@ -22,9 +22,7 @@
 
 -(void)setAgendaWebViewWithURL:(NSURL*)url{
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    
-    [_agendaWebView loadRequest:request];
-    
+    [_agendaWebView loadRequest:request];    
 }
 
 -(void)setStartDateLabelText:(NSString*)date{

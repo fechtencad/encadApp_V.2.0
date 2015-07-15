@@ -25,6 +25,7 @@
 		3A2C23161A949DC400522EB5 /* EventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2C23151A949DC400522EB5 /* EventTableViewCell.m */; };
 		3A2C23191A94BD1600522EB5 /* PDFController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2C23181A94BD1600522EB5 /* PDFController.m */; };
 		3A2C231C1A94CB5000522EB5 /* EventSignInController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2C231B1A94CB5000522EB5 /* EventSignInController.m */; };
+		3A2D73751AA0BE89004F2C83 /* maps-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2D73741AA0BE89004F2C83 /* maps-icon.png */; };
 		3A2E22411A8CCEA300E1AB2A /* AuditionTaskSelectorTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E22401A8CCEA300E1AB2A /* AuditionTaskSelectorTable.m */; };
 		3A2E22441A8CCEEF00E1AB2A /* AudtionTaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E22431A8CCEEF00E1AB2A /* AudtionTaskTableViewCell.m */; };
 		3A2E22501A8CDEDA00E1AB2A /* background_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2E224F1A8CDEDA00E1AB2A /* background_blue.png */; };
@@ -66,7 +67,6 @@
 		3A7E45EC1A938A95001D9C39 /* background_audition_bird.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A7E45EB1A938A95001D9C39 /* background_audition_bird.png */; };
 		3A9B1CF41A9C7464003577C6 /* encadApp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A9B1CF21A9C7464003577C6 /* encadApp.storyboard */; };
 		3A9B1CFB1A9C790E003577C6 /* RouteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9B1CFA1A9C790E003577C6 /* RouteTableViewCell.m */; };
-		3A9B1CFD1A9C7D78003577C6 /* maps-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9B1CFC1A9C7D78003577C6 /* maps-icon.png */; };
 		3A9B1D001A9C7DCA003577C6 /* RouteController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9B1CFF1A9C7DCA003577C6 /* RouteController.m */; };
 		3A9B1D071A9CA59C003577C6 /* layers_mid.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9B1D041A9CA59C003577C6 /* layers_mid.png */; };
 		3A9B1D0B1A9CB484003577C6 /* layers_top.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9B1D0A1A9CB484003577C6 /* layers_top.png */; };
@@ -130,6 +130,7 @@
 		3A2C23181A94BD1600522EB5 /* PDFController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFController.m; sourceTree = "<group>"; };
 		3A2C231A1A94CB5000522EB5 /* EventSignInController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventSignInController.h; sourceTree = "<group>"; };
 		3A2C231B1A94CB5000522EB5 /* EventSignInController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventSignInController.m; sourceTree = "<group>"; };
+		3A2D73741AA0BE89004F2C83 /* maps-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "maps-icon.png"; sourceTree = "<group>"; };
 		3A2E223F1A8CCEA300E1AB2A /* AuditionTaskSelectorTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuditionTaskSelectorTable.h; sourceTree = "<group>"; };
 		3A2E22401A8CCEA300E1AB2A /* AuditionTaskSelectorTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuditionTaskSelectorTable.m; sourceTree = "<group>"; };
 		3A2E22421A8CCEEF00E1AB2A /* AudtionTaskTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudtionTaskTableViewCell.h; sourceTree = "<group>"; };
@@ -186,7 +187,6 @@
 		3A9B1CF31A9C7464003577C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/encadApp.storyboard; sourceTree = "<group>"; };
 		3A9B1CF91A9C790E003577C6 /* RouteTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteTableViewCell.h; sourceTree = "<group>"; };
 		3A9B1CFA1A9C790E003577C6 /* RouteTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteTableViewCell.m; sourceTree = "<group>"; };
-		3A9B1CFC1A9C7D78003577C6 /* maps-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "maps-icon.png"; path = "../../../../../Downloads/maps-icon.png"; sourceTree = "<group>"; };
 		3A9B1CFE1A9C7DCA003577C6 /* RouteController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteController.h; sourceTree = "<group>"; };
 		3A9B1CFF1A9C7DCA003577C6 /* RouteController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteController.m; sourceTree = "<group>"; };
 		3A9B1D041A9CA59C003577C6 /* layers_mid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = layers_mid.png; path = "../../Images/encadApp 2.0/layers_mid.png"; sourceTree = "<group>"; };
@@ -372,9 +372,9 @@
 				3A9B1D0C1A9CB4A1003577C6 /* layers_bot.png */,
 				3A9B1D0A1A9CB484003577C6 /* layers_top.png */,
 				3A9B1D041A9CA59C003577C6 /* layers_mid.png */,
-				3A9B1CFC1A9C7D78003577C6 /* maps-icon.png */,
 				3ABC6A8B1A9B825B00EA9EE7 /* GPS Receiving-32.png */,
 				3ABC6A891A9B820A00EA9EE7 /* walking_32.png */,
+				3A2D73741AA0BE89004F2C83 /* maps-icon.png */,
 				3ABC6A831A9B818300EA9EE7 /* bicycle_32.png */,
 				3ABC6A7F1A9B80B200EA9EE7 /* car_32.png */,
 				3ABC6A7B1A9B7B9900EA9EE7 /* location_blue_32.png */,
@@ -626,13 +626,13 @@
 				3A2E22601A8CEFDC00E1AB2A /* background_blue_stripes.png in Resources */,
 				3A3B85051A9F24390076589A /* bird_left.jpeg in Resources */,
 				3A026EAD1A8B836200CD0DD4 /* audit_bird.png in Resources */,
-				3A9B1CFD1A9C7D78003577C6 /* maps-icon.png in Resources */,
 				3A7E45EC1A938A95001D9C39 /* background_audition_bird.png in Resources */,
 				3A3B85081A9F26820076589A /* ec groß blur.png in Resources */,
 				3A026E711A8B427300CD0DD4 /* LaunchScreen.xib in Resources */,
 				3A9B1D0D1A9CB4A1003577C6 /* layers_bot.png in Resources */,
 				3ABC6A841A9B818300EA9EE7 /* bicycle_32.png in Resources */,
 				3A9B1D181A9CC87F003577C6 /* background_webinar.png in Resources */,
+				3A2D73751AA0BE89004F2C83 /* maps-icon.png in Resources */,
 				3A9B1CF41A9C7464003577C6 /* encadApp.storyboard in Resources */,
 				3A3B85061A9F24390076589A /* logo_blur.png in Resources */,
 				3ABC6A7C1A9B7B9900EA9EE7 /* location_blue_32.png in Resources */,

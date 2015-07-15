@@ -69,7 +69,7 @@
      _pdfURLString = [[[_serverPath stringByAppendingString:@"pdf/datasheet/" ] stringByAppendingString: _datasheetName] stringByAppendingString:@".pdf"];
     if(_event)
         _pdfURLString = [[[_serverPath stringByAppendingString:@"pdf/agenda/" ] stringByAppendingString: _datasheetName] stringByAppendingString:@".pdf"];
-    NSURL *theURL = [NSURL URLWithString:_pdfURLString];
+    NSURL *theURL = [NSURL URLWithString:[_pdfURLString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     
     NSURLRequest *request = [NSURLRequest requestWithURL:theURL];
     

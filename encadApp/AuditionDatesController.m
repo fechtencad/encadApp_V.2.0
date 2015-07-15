@@ -230,7 +230,7 @@
     cell.softwareLabel.text=auditionDate.zusatz;
     cell.cityLabel.text=auditionDate.orts_name;
     NSString *thePDFUrl = [[[_serverPath stringByAppendingString:@"pdf/datasheet/" ] stringByAppendingString: auditionDate.datenblatt_name] stringByAppendingString:@".pdf"];
-    [cell setPDF:thePDFUrl];
+    [cell setPDF:[thePDFUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     
     return cell;
 }

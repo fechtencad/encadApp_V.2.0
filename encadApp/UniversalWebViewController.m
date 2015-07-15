@@ -24,7 +24,7 @@
     self.navigationItem.title = _urlString;
     
     //UIWebView settings
-    NSURL *loadURL = [NSURL URLWithString:_urlString];
+    NSURL *loadURL = [NSURL URLWithString:[_urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSURLRequest *request = [NSURLRequest requestWithURL:loadURL];
     [self.webView loadRequest:request];
     
